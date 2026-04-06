@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Organisasi OSIS Sekolah - Platform komunikasi dan informasi OSIS terlengkap">
+    <title>OSIS - Organisasi Siswa Intra Sekolah | Website Resmi</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>OSIS</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#struktur" class="nav-link">Struktur</a></li>
+                <li><a href="#program" class="nav-link">Program</a></li>
+                <li><a href="#galeri" class="nav-link">Galeri</a></li>
+                <li><a href="#berita" class="nav-link">Berita</a></li>
+                <li><a href="#poster" class="nav-link">Poster</a></li>
+                <li><a href="#agenda" class="nav-link">Agenda</a></li>
+                <li><a href="#aspirasi" class="nav-link">Aspirasi</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#kontak" class="nav-link">Contac</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="search-toggle" id="searchToggle" title="Pencarian">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SEARCH MODAL -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" onclick="closeSearch()"></div>
+        <div class="search-content">
+            <button class="search-close" onclick="closeSearch()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="search-header">
+                <i class="fas fa-search"></i>
+                <h3>Cari di Website OSIS</h3>
+            </div>
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Ketik kata kunci..." />
+                <button class="search-btn" onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-placeholder">
+                    <i class="fas fa-search"></i>
+                    <p>Ketik untuk mencari informasi, berita, program, atau konten lainnya</p>
+                </div>
+            </div>
+            <div class="search-suggestions">
+                <h4>Pencarian Populer:</h4>
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" onclick="searchKeyword('program')">Program</span>
+                    <span class="suggestion-tag" onclick="searchKeyword('berita')">Berita</span>
+                    <span class="suggestion-tag" onclick="searchKeyword('struktur')">Struktur</span>
+                    <span class="suggestion-tag" onclick="searchKeyword('galeri')">Galeri</span>
+                    <span class="suggestion-tag" onclick="searchKeyword('kontak')">Kontak</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🎓</span>
+                <span class="badge-text">Organisasi Terpercaya</span>
+            </div>
+            <h1 class="hero-title">OSIS</h1>
+            <p class="hero-subtitle">Organisasi Siswa Intra Sekolah</p>
+            <p class="hero-desc">Membangun karakter, mengembangkan prestasi, bersama membangun sekolah lebih baik</p>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">
+                    <i class="fas fa-arrow-down"></i>
+                    Pelajari Lebih Lanjut
+                </a>
+                <a href="#aspirasi" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i>
+                    Kirim Aspirasi
+                </a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-count="32">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <h3>32</h3>
+                    <p>Anggota Aktif</p>
+                </div>
+                <div class="stat-card" data-count="6">
+                    <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>6</h3>
+                    <p>Bidang Kerja</p>
+                </div>
+                <div class="stat-card" data-count="10">
+                    <div class="stat-icon"><i class="fas fa-flag-checkered"></i></div>
+                    <h3>10+</h3>
+                    <p>Program Tahun Ini</p>
+                </div>
+                <div class="stat-card" data-count="1000">
+                    <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                    <h3>1000+</h3>
+                    <p>Dukungan Siswa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD STATISTIK INTERAKTIF -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2 class="section-title">📊 Dashboard OSIS</h2>
+            <p class="section-subtitle">Statistik dan pencapaian OSIS dalam angka</p>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Statistik Aktivitas</h3>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric">
+                            <span class="metric-value" data-target="156">0</span>
+                            <span class="metric-label">Kegiatan Dilaksanakan</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" data-target="89">0</span>
+                            <span class="metric-label">Peserta Terlibat</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" data-target="95">0</span>
+                            <span class="metric-label">% Kepuasan Siswa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Pencapaian</h3>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Juara 1 Lomba OSIS Tingkat Kota</h4>
+                                <p>Kategori Program Kreativitas</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Penghargaan Sekolah Terbaik</h4>
+                                <p>Kategori OSIS Teraktif</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>100% Target Program Terpenuhi</h4>
+                                <p>Tahun Ajaran 2023/2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Progress Program</h3>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Program Semester 1</span>
+                                <span class="progress-percent">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Penggalangan Dana</span>
+                                <span class="progress-percent">92%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-title">Event Akhir Tahun</span>
+                                <span class="progress-percent">67%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Event Mendatang</h3>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="upcoming-event">
+                            <div class="event-date">
+                                <span class="event-day">15</span>
+                                <span class="event-month">APR</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Pelantikan Pengurus Baru</h4>
+                                <p>Aula Sekolah - 14:00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="upcoming-event">
+                            <div class="event-date">
+                                <span class="event-day">22</span>
+                                <span class="event-month">APR</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Lomba OSIS Tingkat Kabupaten</h4>
+                                <p>GOR Utama - 08:00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="upcoming-event">
+                            <div class="event-date">
+                                <span class="event-day">30</span>
+                                <span class="event-month">APR</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Workshop Kepemimpinan</h4>
+                                <p>Ruang OSIS - 10:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang OSIS</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-tabs">
+                        <button class="tab-btn active" data-tab="sejarah">
+                            <i class="fas fa-history"></i> Sejarah
+                        </button>
+                        <button class="tab-btn" data-tab="visi-misi">
+                            <i class="fas fa-target"></i> Visi & Misi
+                        </button>
+                        <button class="tab-btn" data-tab="nilai">
+                            <i class="fas fa-gem"></i> Nilai-Nilai Inti
+                        </button>
+                    </div>
+
+                    <div class="tab-content active" id="sejarah-tab">
+                        <h3>Sejarah OSIS</h3>
+                        <p>[MASUKKAN SEJARAH BERDIRINYA OSIS - Kapan, di mana, dan bagaimana OSIS Anda didirikan]</p>
+                        <p>[LANJUTKAN CERITA PERKEMBANGAN DAN PENCAPAIAN OSIS SELAMA INI]</p>
+                    </div>
+
+                    <div class="tab-content" id="visi-misi-tab">
+                        <h3>Visi</h3>
+                        <p class="visi-box">[MASUKKAN VISI OSIS]</p>
+                        
+                        <h3 style="margin-top: 2rem;">Misi</h3>
+                        <ul class="misi-list">
+                            <li><span class="check-icon">✓</span> [MASUKKAN MISI 1]</li>
+                            <li><span class="check-icon">✓</span> [MASUKKAN MISI 2]</li>
+                            <li><span class="check-icon">✓</span> [MASUKKAN MISI 3]</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="nilai-tab">
+                        <h3>Nilai-Nilai Inti Kami</h3>
+                        <div class="nilai-grid">
+                            <div class="nilai-card">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Kerjasama</h4>
+                                <p>Bekerja bersama untuk mencapai tujuan bersama</p>
+                            </div>
+                            <div class="nilai-card">
+                                <i class="fas fa-star"></i>
+                                <h4>Integritas</h4>
+                                <p>Jujur, bertanggung jawab, dan konsisten</p>
+                            </div>
+                            <div class="nilai-card">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Inovasi</h4>
+                                <p>Selalu mencari cara baru yang lebih baik</p>
+                            </div>
+                            <div class="nilai-card">
+                                <i class="fas fa-fire"></i>
+                                <h4>Semangat</h4>
+                                <p>Energik, bersemangat, dan antusias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Foto Kebersamaan OSIS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRUKTUR ORGANISASI -->
+    <section id="struktur" class="struktur">
+        <div class="container">
+            <h2 class="section-title">Struktur Organisasi OSIS</h2>
+            <p class="section-subtitle">Susunan pengurus OSIS tahun ajaran ini</p>
+            <p class="section-description">Di bawah ini adalah penjelasan singkat tentang susunan kepengurusan OSIS yang mencakup pembina, pengurus inti, biro administrasi, serta bidang kerja OSIS.</p>
+            
+            <!-- Level 1: Pembina -->
+            <div class="org-level">
+                <h3 class="level-title">
+                    <i class="fas fa-chalkboard-user"></i> Pembina/Pendamping
+                </h3>
+                <div class="org-grid two-cols">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Pembina Putri</h4>
+                        <p class="member-position">[NAMA PEMBINA PUTRI]</p>
+                        <p class="member-title">Guru Pembimbing</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Pembina Putra</h4>
+                        <p class="member-position">[NAMA PEMBINA PUTRA]</p>
+                        <p class="member-title">Guru Pembimbing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 2: Ketua & Wakil -->
+            <div class="org-level">
+                <h3 class="level-title">
+                    <i class="fas fa-crown"></i> Pengurus Inti
+                </h3>
+                <div class="org-grid two-cols">
+                    <div class="member-card featured">
+                        <div class="featured-badge">Ketua</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4 style="font-size: 1.3rem;">Ketua OSIS</h4>
+                        <p class="member-position">[NAMA KETUA OSIS]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                    <div class="member-card featured">
+                        <div class="featured-badge">Wakil</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4 style="font-size: 1.3rem;">Wakil Ketua</h4>
+                        <p class="member-position">[NAMA WAKIL KETUA]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 3: Sekretaris & Bendahara -->
+            <div class="org-level">
+                <h3 class="level-title">
+                    <i class="fas fa-briefcase"></i> Biro Administrasi & Keuangan
+                </h3>
+                <div class="org-grid four-cols">
+                    <div class="member-card">
+                        <div class="function-badge">Sekretaris</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Sekretaris 1</h4>
+                        <p class="member-position">[NAMA SEKRETARIS 1]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="function-badge">Sekretaris</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Sekretaris 2</h4>
+                        <p class="member-position">[NAMA SEKRETARIS 2]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="function-badge">Bendahara</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Bendahara 1</h4>
+                        <p class="member-position">[NAMA BENDAHARA 1]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="function-badge">Bendahara</div>
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h4>Bendahara 2</h4>
+                        <p class="member-position">[NAMA BENDAHARA 2]</p>
+                        <p class="member-title">Kelas [X/XI/XII]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 4: Bidang-Bidang -->
+            <div class="org-level">
+                <h3 class="level-title">
+                    <i class="fas fa-sitemap"></i> Bidang-Bidang Kerja
+                </h3>
+                
+                <!-- Bidang 1 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-book"></i> Bidang 1 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG - Fungsi dan tanggung jawab bidang ini]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 1]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bidang 2 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-users"></i> Bidang 2 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 2]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bidang 3 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-megaphone"></i> Bidang 3 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 3]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bidang 4 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-star"></i> Bidang 4 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 4]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bidang 5 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-trophy"></i> Bidang 5 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 5]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bidang 6 -->
+                <div class="bidang-section">
+                    <div class="bidang-header">
+                        <div class="bidang-title">
+                            <i class="fas fa-lightbulb"></i> Bidang 6 - [NAMA BIDANG]
+                        </div>
+                        <p class="bidang-desc">[DESKRIPSI SINGKAT BIDANG]</p>
+                    </div>
+                    <div class="org-grid five-cols">
+                        <div class="member-card">
+                            <div class="function-badge">Ketua Bidang</div>
+                            <div class="member-photo">
+                                <div class="photo-placeholder"><i class="fas fa-user"></i></div>
+                            </div>
+                            <h5>Ketua Bidang</h5>
+                            <p class="member-position">[NAMA KETUA BIDANG 6]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 1</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 2</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 3</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo"><div class="photo-placeholder"><i class="fas fa-user"></i></div></div>
+                            <h5>Anggota 4</h5>
+                            <p class="member-position">[NAMA ANGGOTA]</p>
+                            <p class="member-title">Kelas [X/XI/XII]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM KERJA & KEGIATAN SECTION -->
+    <section id="program" class="program">
+        <div class="container">
+            <h2 class="section-title">📅 Program Kerja & Kegiatan</h2>
+            <p class="section-subtitle">Rencana dan jadwal kegiatan OSIS tahun ini</p>
+            
+            <div class="program-tabs">
+                <button class="program-tab-btn active" data-program="semester1">
+                    <i class="fas fa-calendar"></i> Semester 1
+                </button>
+                <button class="program-tab-btn" data-program="semester2">
+                    <i class="fas fa-calendar"></i> Semester 2
+                </button>
+            </div>
+
+            <div class="program-content active" id="semester1-content">
+                <div class="program-grid">
+                    <div class="program-item">
+                        <div class="program-number">01</div>
+                        <div class="program-info">
+                            <h4>Program Pertama</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM - Tujuan, manfaat, dan kegiatan apa yang akan dilakukan]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-planned"><i class="fas fa-clock"></i> Direncanakan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-item">
+                        <div class="program-number">02</div>
+                        <div class="program-info">
+                            <h4>Program Kedua</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-ongoing"><i class="fas fa-spinner"></i> Berjalan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-item">
+                        <div class="program-number">03</div>
+                        <div class="program-info">
+                            <h4>Program Ketiga</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-done"><i class="fas fa-check-circle"></i> Selesai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-content" id="semester2-content">
+                <div class="program-grid">
+                    <div class="program-item">
+                        <div class="program-number">04</div>
+                        <div class="program-info">
+                            <h4>Program Keempat</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-planned"><i class="fas fa-clock"></i> Direncanakan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-item">
+                        <div class="program-number">05</div>
+                        <div class="program-info">
+                            <h4>Program Kelima</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-planned"><i class="fas fa-clock"></i> Direncanakan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-item">
+                        <div class="program-number">06</div>
+                        <div class="program-info">
+                            <h4>Program Keenam</h4>
+                            <p class="program-date"><i class="fas fa-clock"></i> [BULAN - TANGGAL MULAI - TANGGAL AKHIR]</p>
+                            <p class="program-desc">[DESKRIPSI PROGRAM]</p>
+                            <div class="program-status">
+                                <span class="status-badge status-planned"><i class="fas fa-clock"></i> Direncanakan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI FOTO -->
+    <section id="galeri" class="galeri">
+        <div class="container">
+            <h2 class="section-title">Galeri Foto OSIS</h2>
+            <p class="section-subtitle">Koleksi momen-momen berharga kegiatan OSIS</p>
+            
+            <div class="galeri-filter">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> Semua
+                </button>
+                <button class="filter-btn" data-filter="kegiatan">
+                    <i class="fas fa-calendar"></i> Kegiatan
+                </button>
+                <button class="filter-btn" data-filter="profil">
+                    <i class="fas fa-user-circle"></i> Profil
+                </button>
+                <button class="filter-btn" data-filter="acara">
+                    <i class="fas fa-party-horn"></i> Acara
+                </button>
+            </div>
+
+            <div class="galeri-grid">
+                <div class="galeri-item" data-category="kegiatan">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 1]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO - Cerita singkat tentang momen ini]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeri-item" data-category="profil">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 2]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeri-item" data-category="acara">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 3]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeri-item" data-category="kegiatan">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 4]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeri-item" data-category="profil">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 5]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeri-item" data-category="acara">
+                    <div class="galeri-photo">
+                        <div class="photo-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="galeri-info">
+                        <h4>[JUDUL FOTO 6]</h4>
+                        <p class="galeri-desc">[DESKRIPSI FOTO]</p>
+                        <div class="galeri-date">
+                            <i class="fas fa-calendar-alt"></i> [TANGGAL]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galeri-cta">
+                <p>Ingin lihat lebih banyak foto?</p>
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-image"></i> Lihat Album Lengkap
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA & PENGUMUMAN SECTION -->
+    <section id="berita" class="berita">
+        <div class="container">
+            <h2 class="section-title">📰 Berita & Pengumuman</h2>
+            <p class="section-subtitle">Informasi terbaru dan pengumuman penting dari OSIS</p>
+            
+            <div class="berita-grid">
+                <div class="berita-card">
+                    <div class="berita-badge">Pengumuman</div>
+                    <div class="berita-img">
+                        <div class="img-placeholder"><i class="fas fa-bell"></i></div>
+                    </div>
+                    <div class="berita-content">
+                        <h3>[JUDUL PENGUMUMAN 1]</h3>
+                        <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
+                        <p class="berita-desc">[DESKRIPSI PENGUMUMAN - Informasi penting yang perlu diketahui oleh seluruh siswa tentang acara atau kebijakan OSIS]</p>
+                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <div class="berita-card">
+                    <div class="berita-badge">Berita</div>
+                    <div class="berita-img">
+                        <div class="img-placeholder"><i class="fas fa-newspaper"></i></div>
+                    </div>
+                    <div class="berita-content">
+                        <h3>[JUDUL BERITA 1]</h3>
+                        <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
+                        <p class="berita-desc">[DESKRIPSI BERITA - Cerita tentang kegiatan OSIS, pencapaian, atau event yang telah dilaksanakan]</p>
+                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <div class="berita-card">
+                    <div class="berita-badge">Update</div>
+                    <div class="berita-img">
+                        <div class="img-placeholder"><i class="fas fa-info-circle"></i></div>
+                    </div>
+                    <div class="berita-content">
+                        <h3>[JUDUL UPDATE 1]</h3>
+                        <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
+                        <p class="berita-desc">[DESKRIPSI UPDATE - Informasi terbaru mengenai perubahan kebijakan, jadwal, atau keputusan penting OSIS]</p>
+                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita-cta">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i> Lihat Semua Berita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POSTER & MATERIAL SECTION -->
+    <section id="poster" class="poster">
+        <div class="container">
+            <h2 class="section-title">🖼️ Poster & Material</h2>
+            <p class="section-subtitle">Kumpulan poster OSIS baik yang terbaru maupun arsip lama</p>
+            
+            <div class="poster-filters">
+                <button class="poster-filter-btn active" data-filter="semua">
+                    <i class="fas fa-th"></i> Semua Poster
+                </button>
+                <button class="poster-filter-btn" data-filter="terbaru">
+                    <i class="fas fa-star"></i> Terbaru
+                </button>
+                <button class="poster-filter-btn" data-filter="lama">
+                    <i class="fas fa-archive"></i> Arsip Lama
+                </button>
+            </div>
+
+            <div class="poster-grid">
+                <div class="poster-card" data-type="terbaru">
+                    <div class="poster-badge">Terbaru</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER TERBARU 1]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL BARU]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT - Konten poster, tema, atau pesan utama]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="terbaru">
+                    <div class="poster-badge">Terbaru</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER TERBARU 2]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL BARU]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="terbaru">
+                    <div class="poster-badge">Terbaru</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER TERBARU 3]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL BARU]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 1]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 2]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 3]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 4]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 5]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-card" data-type="lama">
+                    <div class="poster-badge poster-badge-old">Arsip</div>
+                    <div class="poster-image">
+                        <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="poster-info">
+                        <h4>[JUDUL POSTER ARSIP 6]</h4>
+                        <p class="poster-date"><i class="fas fa-calendar-alt"></i> [TANGGAL LAMA]</p>
+                        <p class="poster-desc">[DESKRIPSI SINGKAT]</p>
+                        <div class="poster-actions">
+                            <button class="btn btn-small btn-primary" onclick="viewPoster(this)">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-small btn-secondary" onclick="sharePoster(this)">
+                                <i class="fas fa-share-alt"></i> Bagikan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="poster-stats">
+                <p><strong><span id="totalPosters">9</span></strong> poster tersimpan</p>
+                <p>
+                    <span class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <strong id="latestCount">3</strong> terbaru
+                    </span>
+                    <span class="stat-item">
+                        <i class="fas fa-archive"></i>
+                        <strong id="archiveCount">6</strong> arsip
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA & POLLING SISWA -->
+    <section id="agenda" class="agenda">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agenda & Polling OSIS
+                </h2>
+                <p class="section-subtitle">Lihat agenda penting OSIS dan pilih aktivitas favorit berikutnya.</p>
+            </div>
+
+            <div class="agenda-grid">
+                <div class="agenda-card">
+                    <div class="agenda-card-header">
+                        <h3>Kalender Kegiatan</h3>
+                        <p>Jadwal acara OSIS terbaru yang wajib diikuti.</p>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-date">12 Mei</div>
+                            <div>
+                                <h4>Workshop Kreatif</h4>
+                                <p>Pelatihan literasi digital dan desain poster OSIS.</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">20 Mei</div>
+                            <div>
+                                <h4>Gathering Anggota</h4>
+                                <p>Meeting rutin pengurus OSIS dan evaluasi program.</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">27 Mei</div>
+                            <div>
+                                <h4>Seminar Kepemimpinan</h4>
+                                <p>Belajar menjadi pemimpin yang inspiratif dan bertanggung jawab.</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">4 Juni</div>
+                            <div>
+                                <h4>Bazar Amal</h4>
+                                <p>Kegiatan penggalangan dana untuk kegiatan sosial dan lingkungan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agenda-card poll-card">
+                    <div class="agenda-card-header">
+                        <h3>Polling Siswa</h3>
+                        <p>Pilih kegiatan OSIS favoritmu berikutnya.</p>
+                    </div>
+                    <div class="poll-options">
+                        <div class="vote-option">
+                            <span>Workshop Motivasi</span>
+                            <button onclick="votePoll('motivasi')">Pilih</button>
+                        </div>
+                        <div class="vote-option">
+                            <span>Lomba Seni</span>
+                            <button onclick="votePoll('seni')">Pilih</button>
+                        </div>
+                        <div class="vote-option">
+                            <span>Outbond</span>
+                            <button onclick="votePoll('outbound')">Pilih</button>
+                        </div>
+                        <div class="vote-option">
+                            <span>Bazar Amal</span>
+                            <button onclick="votePoll('bazar')">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="poll-results" id="pollResults"></div>
+                    <div class="poll-total" id="pollTotalVotes"></div>
+                </div>
+
+                <div class="agenda-card leaderboard-card">
+                    <div class="agenda-card-header">
+                        <h3>Leaderboard</h3>
+                        <p>Top skor games siswa dalam OSIS challenge.</p>
+                    </div>
+                    <ul class="leaderboard-list">
+                        <li><span class="leader-position">1</span><span>Raka</span><span>9.800</span></li>
+                        <li><span class="leader-position">2</span><span>Alia</span><span>9.250</span></li>
+                        <li><span class="leader-position">3</span><span>Nadia</span><span>8.900</span></li>
+                        <li><span class="leader-position">4</span><span>Daffa</span><span>8.500</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASPIRASI SECTION -->
+    <section id="aspirasi" class="aspirasi">
+        <div class="container">
+            <h2 class="section-title">Sampaikan Aspirasimu</h2>
+            <p class="section-subtitle">Kami mendengarkan setiap suara siswa. Kirimkan aspirasi, saran, atau masukan Anda kepada kami.</p>
+
+            <div class="aspirasi-wrapper">
+                <div class="aspirasi-info">
+                    <h3>Mengapa Aspirasi Penting?</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Suara Anda didengar dan dihargai</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Membantu OSIS membuat keputusan yang lebih baik</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Membangun sekolah sesuai keinginan siswa</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Transparansi dan komunikasi yang lebih baik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="aspirasi-form" id="aspirasiForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap <span class="required">*</span></label>
+                        <input type="text" id="nama" name="nama" required placeholder="Cth: Muhammad Ridho Pratama">
+                        <span class="error-message" id="namaError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="Cth: ridho@email.com">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kelas">Kelas <span class="required">*</span></label>
+                            <select id="kelas" name="kelas" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="X-1">Kelas 10 - 1</option>
+                                <option value="X-2">Kelas 10 - 2</option>
+                                <option value="X-3">Kelas 10 - 3</option>
+                                <option value="XI-1">Kelas 11 - 1</option>
+                                <option value="XI-2">Kelas 11 - 2</option>
+                                <option value="XI-3">Kelas 11 - 3</option>
+                                <option value="XII-1">Kelas 12 - 1</option>
+                                <option value="XII-2">Kelas 12 - 2</option>
+                            </select>
+                            <span class="error-message" id="kelasError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kategori">Kategori Aspirasi <span class="required">*</span></label>
+                            <select id="kategori" name="kategori" required>
+                                <option value="">Pilih Kategori</option>
+                                <option value="akademik">🎓 Akademik</option>
+                                <option value="kegiatan">📅 Kegiatan</option>
+                                <option value="fasilitas">🏢 Fasilitas</option>
+                                <option value="lingkungan">🌿 Lingkungan</option>
+                                <option value="sosial">👥 Sosial</option>
+                                <option value="lainnya">📝 Lainnya</option>
+                            </select>
+                            <span class="error-message" id="kategoriError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aspirasi">Aspirasi/Masukan <span class="required">*</span></label>
+                        <textarea id="aspirasi" name="aspirasi" rows="6" required placeholder="Tuliskan aspirasi, saran, atau masukan Anda di sini dengan detail dan jelas..."></textarea>
+                        <span class="error-message" id="aspirasiError"></span>
+                        <small class="char-count"><span id="charCount">0</span>/500 karakter</small>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="setuju" name="setuju" required>
+                        <label for="setuju">Saya setuju data saya digunakan untuk membalas aspirasi ini dan meningkatkan layanan OSIS</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
+                    </button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GAMES SECTION ========== -->
+    <section id="games" class="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    Games OSIS
+                </h2>
+                <p class="section-subtitle">Bermain sambil belajar tentang OSIS! Nikmati berbagai game interaktif yang edukatif dan menyenangkan.</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>OSIS Quiz Challenge</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Test pengetahuanmu tentang OSIS dengan quiz interaktif! Jawab pertanyaan dengan benar untuk mendapatkan skor tertinggi.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 5-10 menit</span>
+                            <span><i class="fas fa-star"></i> Edukatif</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startQuizGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Memory Card OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Cocokkan kartu dengan logo dan simbol OSIS! Latih daya ingat dan konsentrasimu dengan game yang menyenangkan.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 3-5 menit</span>
+                            <span><i class="fas fa-brain"></i> Latih Otak</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startMemoryGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3>Snake OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Kontrol ular untuk mengumpulkan poin! Hindari tembok dan tubuh sendiri. Game klasik dengan tema OSIS yang seru!</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> Unlimited</span>
+                            <span><i class="fas fa-trophy"></i> High Score</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startSnakeGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-modal" id="gameModal">
+                <div class="game-modal-overlay" onclick="closeGameModal()"></div>
+                <div class="game-modal-content">
+                    <div class="game-modal-header">
+                        <h3 id="gameModalTitle">Game Title</h3>
+                        <button class="game-modal-close" onclick="closeGameModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="game-modal-body" id="gameModalBody">
+                        <!-- Game content will be loaded here -->
+                    </div>
+    <!-- TIMELINE SEJARAH OSIS -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title">📚 Sejarah OSIS</h2>
+            <p class="section-subtitle">Perjalanan panjang OSIS dalam membangun karakter siswa</p>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>Pendirian OSIS</h3>
+                        <p>OSIS resmi didirikan sebagai wadah aspirasi siswa. Dimulai dengan 25 anggota pertama yang memiliki visi membangun sekolah lebih baik.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-users"></i> 25 Anggota</span>
+                            <span><i class="fas fa-flag"></i> 3 Program</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3>Era Modernisasi</h3>
+                        <p>OSIS mulai mengadopsi teknologi digital. Website pertama OSIS diluncurkan dan media sosial mulai digunakan untuk komunikasi.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-globe"></i> Website Baru</span>
+                            <span><i class="fas fa-mobile-alt"></i> Sosial Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Prestasi Tingkat Kota</h3>
+                        <p>OSIS berhasil meraih juara 1 dalam kompetisi OSIS tingkat kota. Program-program inovatif mendapat penghargaan dari dinas pendidikan.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-medal"></i> Juara 1 Kota</span>
+                            <span><i class="fas fa-award"></i> 5 Penghargaan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Adaptasi Era Pandemi</h3>
+                        <p>OSIS beradaptasi dengan situasi pandemi. Program-program dilaksanakan secara daring dan fokus pada kesehatan mental siswa.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-laptop"></i> 15 Program Online</span>
+                            <span><i class="fas fa-heart"></i> Dukungan Mental</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Era Digital Terintegrasi</h3>
+                        <p>OSIS meluncurkan sistem digital terintegrasi. Website modern, aplikasi mobile, dan sistem aspirasi online menjadi fokus utama.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-code"></i> Website Modern</span>
+                            <span><i class="fas fa-robot"></i> AI Chatbot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item current">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Masa Depan Cerah</h3>
+                        <p>OSIS terus berkembang dengan inovasi terbaru. Fokus pada pengembangan karakter, prestasi akademik, dan kesejahteraan siswa.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-target"></i> 100+ Program</span>
+                            <span><i class="fas fa-users"></i> 44 Anggota</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonial" class="testimonial">
+        <div class="container">
+            <h2 class="section-title">💬 Suara Siswa</h2>
+            <p class="section-subtitle">Apa kata siswa tentang OSIS dan pengalaman mereka</p>
+
+            <div class="testimonial-slider">
+                <div class="testimonial-container">
+                    <div class="testimonial-item active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Bergabung dengan OSIS adalah keputusan terbaik saya di sekolah. Saya belajar banyak tentang kepemimpinan, tanggung jawab, dan bagaimana bekerja dalam tim. OSIS benar-benar membentuk karakter saya."</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Putri</h4>
+                                    <p>Ketua OSIS 2022/2023</p>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Program-program OSIS sangat bermanfaat. Dari workshop kepemimpinan hingga kegiatan sosial, semuanya dirancang untuk mengembangkan potensi siswa. Saya bangga menjadi bagian dari organisasi ini."</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ahmad Rahman</h4>
+                                    <p>Anggota Bidang Program 2023/2024</p>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"OSIS adalah jembatan antara siswa dan sekolah. Melalui berbagai kegiatan, kami bisa menyampaikan aspirasi dan berkontribusi untuk kemajuan sekolah. Rasanya sangat bermakna!"</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Maya Sari</h4>
+                                    <p>Siswa Kelas XII - MIPA 2</p>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Website OSIS ini sangat membantu! Saya bisa dengan mudah mendapatkan informasi tentang kegiatan, melihat galeri foto, dan bahkan mengirim aspirasi. Teknologi modern yang dibutuhkan siswa masa kini."</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Dimas Pratama</h4>
+                                    <p>Siswa Kelas XI - IPS 1</p>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"OSIS telah mengubah perspektif saya tentang organisasi. Di sini saya belajar bahwa perubahan dimulai dari diri sendiri, dan bersama-sama kita bisa membuat sekolah lebih baik untuk semua siswa."</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Rina Amelia</h4>
+                                    <p>Wakil Ketua OSIS 2023/2024</p>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-navigation">
+                    <button class="testimonial-prev" onclick="prevTestimonial()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" onclick="goToTestimonial(0)"></span>
+                        <span class="dot" onclick="goToTestimonial(1)"></span>
+                        <span class="dot" onclick="goToTestimonial(2)"></span>
+                        <span class="dot" onclick="goToTestimonial(3)"></span>
+                        <span class="dot" onclick="goToTestimonial(4)"></span>
+                    </div>
+                    <button class="testimonial-next" onclick="nextTestimonial()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="lokasi" class="lokasi">
+        <div class="container">
+            <h2 class="section-title">📍 Lokasi & Peta</h2>
+            <p class="section-subtitle">Temukan kami dengan mudah</p>
+            
+            <div class="lokasi-wrapper">
+                <div class="lokasi-info">
+                    <h3>Kantor OSIS</h3>
+                    <div class="lokasi-details">
+                        <div class="lokasi-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p class="label">Alamat Lengkap</p>
+                                <p class="nilai">[MASUKKAN ALAMAT SEKOLAH LENGKAP]</p>
+                            </div>
+                        </div>
+                        <div class="lokasi-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p class="label">Telepon</p>
+                                <p class="nilai"><a href="tel:+6211234567890">(021) 1234-5678</a></p>
+                            </div>
+                        </div>
+                        <div class="lokasi-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p class="label">Email</p>
+                                <p class="nilai"><a href="mailto:osis@sekolah.sch.id">osis@sekolah.sch.id</a></p>
+                            </div>
+                        </div>
+                        <div class="lokasi-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <p class="label">Jam Buka</p>
+                                <p class="nilai">Senin-Jumat: 08:00 - 16:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-directions"></i> Buka di Google Maps
+                    </a>
+                </div>
+
+                <div class="lokasi-map">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Peta Interaktif</p>
+                        <small>[Ganti dengan embed Google Maps Anda]</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CHAT & SUPPORT SECTION -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title">💬 Live Chat & Support</h2>
+            <p class="section-subtitle">Kami siap membantu Anda kapan saja</p>
+            
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-header">
+                        <div class="support-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Live Chat</h3>
+                    </div>
+                    <p>Chat langsung dengan team OSIS kami</p>
+                    <div class="support-status">
+                        <span class="status-online"><span class="dot"></span> Sedang Online</span>
+                    </div>
+                    <button class="btn btn-primary btn-block" onclick="openLiveChat()">
+                        <i class="fas fa-comments"></i> Mulai Chat
+                    </button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-header">
+                        <div class="support-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                    </div>
+                    <p>Kirim pertanyaan Anda via email</p>
+                    <p class="support-email">osis@sekolah.sch.id</p>
+                    <p class="support-time">Respon dalam 24 jam</p>
+                    <a href="mailto:osis@sekolah.sch.id" class="btn btn-secondary btn-block">
+                        <i class="fas fa-paper-plane"></i> Kirim Email
+                    </a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-header">
+                        <div class="support-icon">
+                            <i class="fas fa-message"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                    </div>
+                    <p>Hubungi kami melalui WhatsApp</p>
+                    <p class="support-number">(021) 1234-5678</p>
+                    <p class="support-time">Senin-Jumat | 08:00-16:00</p>
+                    <a href="https://wa.me/6211234567890" target="_blank" class="btn btn-secondary btn-block">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Pertanyaan yang Sering Diajukan</h3>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Bagaimana cara bergabung dengan OSIS?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>[JAWABAN - Jelaskan langkah-langkah dan persyaratan untuk bergabung dengan OSIS]</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Apa saja tanggung jawab anggota OSIS?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>[JAWABAN - Jelaskan tugas dan tanggung jawab dari anggota OSIS]</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Bagaimana cara mengikuti kegiatan OSIS?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>[JAWABAN - Jelaskan bagaimana siswa dapat berpartisipasi dalam kegiatan OSIS]</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Apakah ada keuntungan menjadi anggota OSIS?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>[JAWABAN - Sebutkan manfaat dan keuntungan yang didapat dari bergabung dengan OSIS]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK SECTION -->
+    <section id="kontak" class="kontak">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Kami siap membantu dan mendengarkan Anda</p>
+            
+            <div class="kontak-grid">
+                <div class="kontak-card">
+                    <div class="kontak-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Lokasi</h3>
+                    <p>[MASUKKAN ALAMAT SEKOLAH LENGKAP]</p>
+                    <a href="#lokasi" class="kontak-link">
+                        <i class="fas fa-external-link-alt"></i> Lihat Peta
+                    </a>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:osis@sekolah.sch.id">osis@sekolah.sch.id</a></p>
+                    <small>Kami balas dalam 24 jam</small>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telepon/WhatsApp</h3>
+                    <p><a href="tel:+6211234567890">(021) 1234-5678</a></p>
+                    <small>Senin-Jumat | 08:00-16:00</small>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <p>
+                        Senin-Jumat: 08:00 - 16:00<br>
+                        Sabtu: 08:00 - 12:00<br>
+                        Minggu: Tutup
+                    </p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <h3>Ikuti Media Sosial Kami</h3>
+                <p>Dapatkan update terbaru tentang kegiatan OSIS</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span class="social-label">Instagram</span>
+                    </a>
+                    <a href="#" class="social-icon" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span class="social-label">Facebook</span>
+                    </a>
+                    <a href="#" class="social-icon" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                        <span class="social-label">YouTube</span>
+                    </a>
+                    <a href="#" class="social-icon" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                        <span class="social-label">TikTok</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h3>Kontak Email Resmi</h3>
+                <p>Isi formulir berikut untuk mengirim pesan langsung ke email OSIS. Gunakan alamat email kamu agar kami bisa membalas.</p>
+                <form class="contact-form" action="mailto:osis@sekolah.sch.id" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Nama lengkap" required>
+                        <input type="email" name="email" placeholder="Alamat email" required>
+                    </div>
+                    <textarea name="message" rows="5" placeholder="Tulis pesan atau aspirasi di sini..." required></textarea>
+                    <button type="submit" class="btn btn-primary">Kirim Email</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- WEBSITE RESMI SECTION -->
+    <section id="website-resmi" class="official">
+        <div class="container">
+            <div class="official-card">
+                <div class="official-content">
+                    <span class="section-badge">Website Resmi</span>
+                    <h2 class="section-title">Website Resmi OSIS Sekolah</h2>
+                    <p>Kunjungi website resmi OSIS untuk informasi lengkap tentang kegiatan, program kerja, berita, dan layanan aspirasi siswa secara cepat dan terpercaya.</p>
+                    <div class="official-actions">
+                        <a href="#kontak" class="btn btn-primary">Hubungi Kami</a>
+                        <a href="https://osis.sekolah.sch.id" target="_blank" rel="noopener" class="btn btn-secondary">Buka Website Resmi</a>
+                    </div>
+                </div>
+                <div class="official-image">
+                    <div class="official-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>OSIS</h4>
+                    <p>Organisasi Siswa Intra Sekolah sebagai wadah komunikasi dan aspirasi siswa dalam membangun sekolah yang lebih baik.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#struktur">Struktur</a></li>
+                        <li><a href="#galeri">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contac</h4>
+                    <p>Email: osis@sekolah.sch.id</p>
+                    <p>Telepon: (021) 1234-5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OSIS - Organisasi Siswa Intra Sekolah. All rights reserved.</p>
+                <p>Dibuat dengan <i class="fas fa-heart"></i> oleh OSIS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- POSTER PREVIEW MODAL -->
+    <div class="poster-modal" id="posterModal">
+        <div class="modal-overlay" onclick="closePosterModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePosterModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">[JUDUL POSTER]</h2>
+                    <p class="modal-date"><i class="fas fa-calendar-alt"></i> <span id="modalDate">[TANGGAL]</span></p>
+                    <p class="modal-description" id="modalDescription">[DESKRIPSI LENGKAP POSTER]</p>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" onclick="downloadPoster()">
+                            <i class="fas fa-download"></i> Unduh Poster
+                        </button>
+                        <button class="btn btn-secondary" onclick="sharePosterModal()">
+                            <i class="fas fa-share-alt"></i> Bagikan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
+
+    <!-- AI CHATBOT MODAL -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-bubble" id="chatbotBubble" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+            <span class="chatbot-badge">🤖 AI</span>
+        </div>
+
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i>
+                    <span>Chat Bot OSIS</span>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="chatbot-btn" onclick="clearChatHistory()" title="Hapus chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="chatbot-btn" onclick="toggleChatbot()" title="Tutup">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot-message">
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="message-content">
+                        <p>Halo! 👋 Saya adalah AI Chat Bot OSIS. Ada yang bisa saya bantu? Tanyakan tentang OSIS, Program, Aspirasi, atau apapun yang ingin Anda ketahui!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ketik pertanyaan Anda..." />
+                <button class="chatbot-send" onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

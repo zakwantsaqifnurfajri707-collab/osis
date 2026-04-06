@@ -1,0 +1,320 @@
+{
+  "organisasi": {
+    "nama": "[NAMA SEKOLAH] - OSIS",
+    "tahunBerdiri": 2020,
+    "email": "osis@sekolah.sch.id",
+    "telepon": "(021) 1234-5678",
+    "alamat": "[MASUKKAN ALAMAT SEKOLAH]",
+    
+    "sejarah": "[MASUKKAN SEJARAH BERDIRINYA OSIS DI SINI]",
+    "visi": "[MASUKKAN VISI OSIS DI SINI]",
+    "misi": [
+      "[MASUKKAN MISI 1]",
+      "[MASUKKAN MISI 2]",
+      "[MASUKKAN MISI 3]"
+    ]
+  },
+
+  "pembina": [
+    {
+      "id": 1,
+      "nama": "[NAMA PEMBINA PUTRI]",
+      "posisi": "Pembina/Pendamping Putri",
+      "jenis_kelamin": "Perempuan",
+      "foto": "images/pembina-putri.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "[NAMA PEMBINA PUTRA]",
+      "posisi": "Pembina/Pendamping Putra",
+      "jenis_kelamin": "Laki-laki",
+      "foto": "images/pembina-putra.jpg"
+    }
+  ],
+
+  "pengurusInti": [
+    {
+      "id": 1,
+      "nama": "[NAMA KETUA OSIS]",
+      "posisi": "Ketua OSIS",
+      "kelas": "[KELAS]",
+      "foto": "images/ketua.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "[NAMA WAKIL KETUA]",
+      "posisi": "Wakil Ketua",
+      "kelas": "[KELAS]",
+      "foto": "images/wakil-ketua.jpg"
+    }
+  ],
+
+  "biroAdministrasi": [
+    {
+      "id": 1,
+      "nama": "[NAMA SEKRETARIS 1]",
+      "posisi": "Sekretaris",
+      "kelas": "[KELAS]",
+      "foto": "images/sekretaris-1.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "[NAMA SEKRETARIS 2]",
+      "posisi": "Sekretaris",
+      "kelas": "[KELAS]",
+      "foto": "images/sekretaris-2.jpg"
+    }
+  ],
+
+  "biroKeuangan": [
+    {
+      "id": 1,
+      "nama": "[NAMA BENDAHARA 1]",
+      "posisi": "Bendahara",
+      "kelas": "[KELAS]",
+      "foto": "images/bendahara-1.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "[NAMA BENDAHARA 2]",
+      "posisi": "Bendahara",
+      "kelas": "[KELAS]",
+      "foto": "images/bendahara-2.jpg"
+    }
+  ],
+
+  "bidang": [
+    {
+      "id": 1,
+      "nama": "[NAMA BIDANG 1]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-book",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 1]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang1-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang1-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang1-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang1-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang1-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nama": "[NAMA BIDANG 2]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-users",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 2]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang2-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang2-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang2-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang2-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang2-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nama": "[NAMA BIDANG 3]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-megaphone",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 3]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang3-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang3-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang3-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang3-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang3-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nama": "[NAMA BIDANG 4]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-star",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 4]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang4-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang4-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang4-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang4-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang4-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nama": "[NAMA BIDANG 5]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-trophy",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 5]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang5-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang5-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang5-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang5-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang5-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nama": "[NAMA BIDANG 6]",
+      "deskripsi": "[DESKRIPSI BIDANG]",
+      "icon": "fas fa-lightbulb",
+      "ketua": {
+        "nama": "[NAMA KETUA BIDANG 6]",
+        "kelas": "[KELAS]",
+        "foto": "images/bidang6-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "[NAMA ANGGOTA 1]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang6-anggota1.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 2]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang6-anggota2.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 3]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang6-anggota3.jpg"
+        },
+        {
+          "nama": "[NAMA ANGGOTA 4]",
+          "kelas": "[KELAS]",
+          "foto": "images/bidang6-anggota4.jpg"
+        }
+      ]
+    }
+  ],
+
+  "galeri": [
+    {
+      "id": 1,
+      "judul": "[JUDUL FOTO]",
+      "deskripsi": "[DESKRIPSI FOTO]",
+      "kategori": "kegiatan",
+      "foto": "images/galeri-1.jpg",
+      "tanggal": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "judul": "[JUDUL FOTO]",
+      "deskripsi": "[DESKRIPSI FOTO]",
+      "kategori": "profil",
+      "foto": "images/galeri-2.jpg",
+      "tanggal": "2024-01-14"
+    },
+    {
+      "id": 3,
+      "judul": "[JUDUL FOTO]",
+      "deskripsi": "[DESKRIPSI FOTO]",
+      "kategori": "acara",
+      "foto": "images/galeri-3.jpg",
+      "tanggal": "2024-01-13"
+    }
+  ],
+
+  "socialMedia": {
+    "instagram": "https://instagram.com/[USERNAME]",
+    "facebook": "https://facebook.com/[USERNAME]",
+    "youtube": "https://youtube.com/[USERNAME]",
+    "twitter": "https://twitter.com/[USERNAME]"
+  }
+}
