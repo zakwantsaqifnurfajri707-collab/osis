@@ -1,31 +1,31 @@
 {
   "organisasi": {
-    "nama": "[NAMA SEKOLAH] - OSIS",
+    "nama": "SMA Negeri 1 Jakarta - OSIS",
     "tahunBerdiri": 2020,
-    "email": "osis@sekolah.sch.id",
+    "email": "osis@sman1jakarta.sch.id",
     "telepon": "(021) 1234-5678",
-    "alamat": "[MASUKKAN ALAMAT SEKOLAH]",
+    "alamat": "Jl. Sudirman No. 1, Jakarta Pusat",
     
-    "sejarah": "[MASUKKAN SEJARAH BERDIRINYA OSIS DI SINI]",
-    "visi": "[MASUKKAN VISI OSIS DI SINI]",
+    "sejarah": "OSIS SMA Negeri 1 Jakarta didirikan pada tahun 2020 dengan tujuan untuk menjadi wadah bagi siswa-siswi dalam mengembangkan potensi diri dan berkontribusi untuk kemajuan sekolah. Sejak berdiri, OSIS telah berhasil menyelenggarakan berbagai program unggulan yang mendapat dukungan penuh dari seluruh warga sekolah.",
+    "visi": "Menjadi organisasi siswa yang unggul dalam membangun karakter, mengembangkan prestasi, dan berkontribusi nyata untuk kemajuan sekolah dan masyarakat.",
     "misi": [
-      "[MASUKKAN MISI 1]",
-      "[MASUKKAN MISI 2]",
-      "[MASUKKAN MISI 3]"
+      "Mengembangkan potensi siswa melalui berbagai program kegiatan yang bermanfaat",
+      "Meningkatkan partisipasi siswa dalam kegiatan sekolah dan masyarakat",
+      "Membangun komunikasi yang baik antara siswa, guru, dan pihak sekolah"
     ]
   },
 
   "pembina": [
     {
       "id": 1,
-      "nama": "[NAMA PEMBINA PUTRI]",
+      "nama": "Dra. Siti Aminah, M.Pd.",
       "posisi": "Pembina/Pendamping Putri",
       "jenis_kelamin": "Perempuan",
       "foto": "images/pembina-putri.jpg"
     },
     {
       "id": 2,
-      "nama": "[NAMA PEMBINA PUTRA]",
+      "nama": "Drs. Ahmad Rahman, M.Pd.",
       "posisi": "Pembina/Pendamping Putra",
       "jenis_kelamin": "Laki-laki",
       "foto": "images/pembina-putra.jpg"
@@ -35,16 +35,16 @@
   "pengurusInti": [
     {
       "id": 1,
-      "nama": "[NAMA KETUA OSIS]",
+      "nama": "Rina Sari",
       "posisi": "Ketua OSIS",
-      "kelas": "[KELAS]",
+      "kelas": "XII IPA 1",
       "foto": "images/ketua.jpg"
     },
     {
       "id": 2,
-      "nama": "[NAMA WAKIL KETUA]",
+      "nama": "Budi Santoso",
       "posisi": "Wakil Ketua",
-      "kelas": "[KELAS]",
+      "kelas": "XII IPS 2",
       "foto": "images/wakil-ketua.jpg"
     }
   ],
@@ -52,16 +52,16 @@
   "biroAdministrasi": [
     {
       "id": 1,
-      "nama": "[NAMA SEKRETARIS 1]",
+      "nama": "Maya Putri",
       "posisi": "Sekretaris",
-      "kelas": "[KELAS]",
+      "kelas": "XI IPA 2",
       "foto": "images/sekretaris-1.jpg"
     },
     {
       "id": 2,
-      "nama": "[NAMA SEKRETARIS 2]",
+      "nama": "Dian Anggraini",
       "posisi": "Sekretaris",
-      "kelas": "[KELAS]",
+      "kelas": "XI IPS 1",
       "foto": "images/sekretaris-2.jpg"
     }
   ],
@@ -69,16 +69,16 @@
   "biroKeuangan": [
     {
       "id": 1,
-      "nama": "[NAMA BENDAHARA 1]",
+      "nama": "Andi Wijaya",
       "posisi": "Bendahara",
-      "kelas": "[KELAS]",
+      "kelas": "XI IPA 1",
       "foto": "images/bendahara-1.jpg"
     },
     {
       "id": 2,
-      "nama": "[NAMA BENDAHARA 2]",
+      "nama": "Sari Dewi",
       "posisi": "Bendahara",
-      "kelas": "[KELAS]",
+      "kelas": "XI IPS 2",
       "foto": "images/bendahara-2.jpg"
     }
   ],
@@ -86,68 +86,203 @@
   "bidang": [
     {
       "id": 1,
-      "nama": "[NAMA BIDANG 1]",
-      "deskripsi": "[DESKRIPSI BIDANG]",
+      "nama": "Bidang Akademik & Prestasi",
+      "deskripsi": "Bertanggung jawab dalam mengembangkan potensi akademik siswa dan meningkatkan prestasi sekolah melalui berbagai program bimbingan belajar dan kompetisi.",
       "icon": "fas fa-book",
       "ketua": {
-        "nama": "[NAMA KETUA BIDANG 1]",
-        "kelas": "[KELAS]",
+        "nama": "Lina Kusuma",
+        "kelas": "XII IPA 1",
         "foto": "images/bidang1-ketua.jpg"
       },
       "anggota": [
         {
-          "nama": "[NAMA ANGGOTA 1]",
-          "kelas": "[KELAS]",
+          "nama": "Rizki Pratama",
+          "kelas": "XI IPA 2",
           "foto": "images/bidang1-anggota1.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 2]",
-          "kelas": "[KELAS]",
+          "nama": "Siti Nurhaliza",
+          "kelas": "XI IPS 1",
           "foto": "images/bidang1-anggota2.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 3]",
-          "kelas": "[KELAS]",
+          "nama": "Ahmad Fauzi",
+          "kelas": "X IPA 1",
           "foto": "images/bidang1-anggota3.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 4]",
-          "kelas": "[KELAS]",
+          "nama": "Maya Sari",
+          "kelas": "X IPS 2",
           "foto": "images/bidang1-anggota4.jpg"
         }
       ]
     },
     {
       "id": 2,
-      "nama": "[NAMA BIDANG 2]",
-      "deskripsi": "[DESKRIPSI BIDANG]",
-      "icon": "fas fa-users",
+      "nama": "Bidang Kreativitas & Seni",
+      "deskripsi": "Mengembangkan bakat seni dan kreativitas siswa melalui berbagai kegiatan kesenian, musik, dan pertunjukan seni.",
+      "icon": "fas fa-palette",
       "ketua": {
-        "nama": "[NAMA KETUA BIDANG 2]",
-        "kelas": "[KELAS]",
+        "nama": "Deni Rahman",
+        "kelas": "XII IPS 1",
         "foto": "images/bidang2-ketua.jpg"
       },
       "anggota": [
         {
-          "nama": "[NAMA ANGGOTA 1]",
-          "kelas": "[KELAS]",
+          "nama": "Putri Amelia",
+          "kelas": "XI IPA 1",
           "foto": "images/bidang2-anggota1.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 2]",
-          "kelas": "[KELAS]",
+          "nama": "Bagus Setiawan",
+          "kelas": "XI IPS 2",
           "foto": "images/bidang2-anggota2.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 3]",
-          "kelas": "[KELAS]",
+          "nama": "Rina Melati",
+          "kelas": "X IPA 2",
           "foto": "images/bidang2-anggota3.jpg"
         },
         {
-          "nama": "[NAMA ANGGOTA 4]",
-          "kelas": "[KELAS]",
+          "nama": "Eko Prasetyo",
+          "kelas": "X IPS 1",
           "foto": "images/bidang2-anggota4.jpg"
         }
+      ]
+    },
+    {
+      "id": 3,
+      "nama": "Bidang Olahraga & Kesehatan",
+      "deskripsi": "Mendorong siswa untuk aktif dalam kegiatan olahraga dan menjaga kesehatan melalui berbagai program kebugaran dan kompetisi olahraga.",
+      "icon": "fas fa-running",
+      "ketua": {
+        "nama": "Fajar Nugroho",
+        "kelas": "XII IPA 2",
+        "foto": "images/bidang3-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "Intan Permata",
+          "kelas": "XI IPA 3",
+          "foto": "images/bidang3-anggota1.jpg"
+        },
+        {
+          "nama": "Yoga Pratama",
+          "kelas": "XI IPS 3",
+          "foto": "images/bidang3-anggota2.jpg"
+        },
+        {
+          "nama": "Dewi Lestari",
+          "kelas": "X IPA 3",
+          "foto": "images/bidang3-anggota3.jpg"
+        },
+        {
+          "nama": "Rian Saputra",
+          "kelas": "X IPS 3",
+          "foto": "images/bidang3-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nama": "Bidang Sosial & Lingkungan",
+      "deskripsi": "Berperan aktif dalam kegiatan sosial kemasyarakatan dan pelestarian lingkungan melalui berbagai program bakti sosial dan aksi peduli lingkungan.",
+      "icon": "fas fa-heart",
+      "ketua": {
+        "nama": "Nadia Sari",
+        "kelas": "XII IPS 2",
+        "foto": "images/bidang4-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "Adi Wijaya",
+          "kelas": "XI IPA 4",
+          "foto": "images/bidang4-anggota1.jpg"
+        },
+        {
+          "nama": "Sari Indah",
+          "kelas": "XI IPS 4",
+          "foto": "images/bidang4-anggota2.jpg"
+        },
+        {
+          "nama": "Bayu Santoso",
+          "kelas": "X IPA 4",
+          "foto": "images/bidang4-anggota3.jpg"
+        },
+        {
+          "nama": "Maya Sari",
+          "kelas": "X IPS 4",
+          "foto": "images/bidang4-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nama": "Bidang Teknologi & Informasi",
+      "deskripsi": "Mengembangkan kemampuan siswa di bidang teknologi informasi melalui berbagai workshop dan program digital literacy.",
+      "icon": "fas fa-laptop",
+      "ketua": {
+        "nama": "Rizky Ramadhan",
+        "kelas": "XII IPA 3",
+        "foto": "images/bidang5-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "Citra Dewi",
+          "kelas": "XI IPA 5",
+          "foto": "images/bidang5-anggota1.jpg"
+        },
+        {
+          "nama": "Dika Pratama",
+          "kelas": "XI IPS 5",
+          "foto": "images/bidang5-anggota2.jpg"
+        },
+        {
+          "nama": "Luna Sari",
+          "kelas": "X IPA 5",
+          "foto": "images/bidang5-anggota3.jpg"
+        },
+        {
+          "nama": "Ardi Nugraha",
+          "kelas": "X IPS 5",
+          "foto": "images/bidang5-anggota4.jpg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nama": "Bidang Humas & Komunikasi",
+      "deskripsi": "Mengelola komunikasi internal dan eksternal OSIS serta membangun citra positif organisasi melalui berbagai media komunikasi.",
+      "icon": "fas fa-bullhorn",
+      "ketua": {
+        "nama": "Vina Amelia",
+        "kelas": "XII IPS 3",
+        "foto": "images/bidang6-ketua.jpg"
+      },
+      "anggota": [
+        {
+          "nama": "Raka Perdana",
+          "kelas": "XI IPA 6",
+          "foto": "images/bidang6-anggota1.jpg"
+        },
+        {
+          "nama": "Tia Nurhaliza",
+          "kelas": "XI IPS 6",
+          "foto": "images/bidang6-anggota2.jpg"
+        },
+        {
+          "nama": "Dimas Setiawan",
+          "kelas": "X IPA 6",
+          "foto": "images/bidang6-anggota3.jpg"
+        },
+        {
+          "nama": "Rina Melati",
+          "kelas": "X IPS 6",
+          "foto": "images/bidang6-anggota4.jpg"
+        }
+      ]
+    }
+  ]
       ]
     },
     {
