@@ -21,6 +21,12 @@ const navbar = document.getElementById('navbar');
 navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
+    // Prevent body scroll when menu is open on mobile
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close menu when link clicked
@@ -28,6 +34,7 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
