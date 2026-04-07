@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Halaman berita lengkap OSIS - Pengumuman, kegiatan, dan update terbaru.">
+    <title>Berita OSIS</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="top" class="hero">
+        <div class="hero-background">
+            <span class="shape shape-1"></span>
+            <span class="shape shape-2"></span>
+            <span class="shape shape-3"></span>
+        </div>
+        <div class="container">
+            <div class="hero-content" style="text-align: center;">
+                <span class="hero-badge">
+                    <span class="badge-icon"><i class="fas fa-newspaper"></i></span>
+                    <span class="badge-text">Berita OSIS</span>
+                </span>
+                <h1 class="hero-title">Berita & Pengumuman OSIS</h1>
+                <p class="hero-subtitle">Informasi penting untuk siswa OSIS.</p>
+                <p class="hero-desc">Dapatkan update terbaru, pengumuman penting, dan cerita kegiatan OSIS dalam satu halaman yang mudah dibaca dan penuh energi.</p>
+                <div class="hero-cta">
+                    <a href="#berita-list" class="btn btn-primary">Lihat Berita Terbaru</a>
+                    <a href="index.html" class="btn btn-secondary">Kembali ke Beranda</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="berita-lengkap" id="berita-list">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <div>
+                        <p class="section-tag">Berita Sekolah</p>
+                        <h2 class="section-title">Ringkasan Berita Sekolah & OSIS</h2>
+                        <p class="section-subtitle">Jelaskan ringkas berita OSIS, sekolah, ekstrakurikuler, dan pengumuman penting agar siswa mudah menemukan informasi terbaru.</p>
+                    </div>
+                </div>
+
+                <div class="berita-filter-bar">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="osis">OSIS</button>
+                    <button class="filter-btn" data-filter="sekolah">Sekolah</button>
+                    <button class="filter-btn" data-filter="pengumuman">Pengumuman</button>
+                    <button class="filter-btn" data-filter="acara">Acara</button>
+                </div>
+
+                <div class="berita-overview-grid">
+                    <div class="news-feature-card">
+                        <span class="news-label">Terbaru</span>
+                        <h3>Festival Seni & Budaya 2024 Berhasil Digelar</h3>
+                        <p>Festival seni dan budaya OSIS membawa kreativitas siswa, penampilan ekstrakurikuler, dan kolaborasi antar kelas.</p>
+                        <div class="news-footer">
+                            <span><i class="fas fa-calendar-alt"></i> 20 November 2024</span>
+                            <a href="#news-4" class="btn btn-secondary btn-small">Baca Lengkap</a>
+                        </div>
+                    </div>
+                    <div class="headline-list">
+                        <a href="#news-0">Pengumuman UAS: Jadwal baru, persiapan siswa, instruksi penting</a>
+                        <a href="#news-1">OSIS Kembali Buka Pendaftaran Pengurus Baru 2025</a>
+                        <a href="#news-2">Ekstrakurikuler Olahraga: Siswa meraih juara 2 lomba futsal</a>
+                        <a href="#news-3">Pengumuman: Workshop Pelatihan Siswa Bakat Digital</a>
+                        <a href="#news-5">Sekolah siap gelar hari bakti lingkungan</a>
+                    </div>
+                </div>
+
+                <div class="berita-grid">
+                    <article class="news-card" data-category="pengumuman">
+                        <span class="category-pill">Pengumuman</span>
+                        <h3><a href="#news-0">Perubahan Jadwal Ujian Akhir Semester</a></h3>
+                        <p class="news-desc">Jadwal UAS berubah dan tim akademik meminta siswa mempersiapkan diri dengan waktu yang lebih efektif.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 1 Desember 2024</span>
+                            <a href="#news-0" class="berita-link">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                    <article class="news-card" data-category="osis">
+                        <span class="category-pill">OSIS</span>
+                        <h3><a href="#news-1">OSIS Buka Pendaftaran Pengurus Baru 2025</a></h3>
+                        <p class="news-desc">Siswa yang berminat menjadi pengurus OSIS dapat mendaftar online dan mengikuti seleksi program kerja.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 15 Januari 2025</span>
+                            <a href="#news-1" class="berita-link">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                    <article class="news-card" data-category="sekolah">
+                        <span class="category-pill">Sekolah</span>
+                        <h3><a href="#news-5">Sekolah Siap Gelar Hari Bakti Lingkungan</a></h3>
+                        <p class="news-desc">Kegiatan gotong royong dan penghijauan akan melibatkan semua kelas untuk menjaga lingkungan sekolah.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 5 Januari 2025</span>
+                            <a href="#news-5" class="berita-link">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                    <article class="news-card" data-category="acara">
+                        <span class="category-pill">Acara</span>
+                        <h3><a href="#news-2">Siswa Raih Juara 2 Lomba Futsal Antar Sekolah</a></h3>
+                        <p class="news-desc">Tim futsal sekolah menunjukkan semangat juang tinggi dan membawa pulang prestasi untuk sekolah.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 28 November 2024</span>
+                            <a href="#news-2" class="berita-link">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                    <article class="news-card" data-category="pengumuman">
+                        <span class="category-pill">Pengumuman</span>
+                        <h3><a href="#news-3">Workshop Digital bagi Siswa Bakat Teknologi</a></h3>
+                        <p class="news-desc">Program pelatihan digital untuk siswa berbakat akan diadakan di laboratorium komputer pada bulan depan.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 10 Januari 2025</span>
+                            <a href="#news-3" class="berita-link">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="berita-detail" style="padding: 40px 0 80px; background: #0b1120;">
+            <div class="container">
+                <div id="news-0" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>Pengumuman: Perubahan Jadwal Ujian Akhir Semester</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 1 Desember 2024</p>
+                    <p>Jadwal UAS baru telah ditetapkan. Semua siswa diminta memperhatikan perubahan hari dan jam ujian, serta mempersiapkan dokumen yang diperlukan sesuai daftar agenda sekolah.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+                <div id="news-1" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>OSIS Buka Pendaftaran Pengurus Baru 2025</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 15 Januari 2025</p>
+                    <p>Pendaftaran OSIS untuk periode 2025 dibuka. Siswa dapat mengajukan diri dengan mengisi formulir online dan mempersiapkan visi misi program kerja yang kreatif.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+                <div id="news-2" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>Siswa Raih Juara 2 Lomba Futsal Antar Sekolah</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 28 November 2024</p>
+                    <p>Tim futsal sekolah berhasil meraih posisi runner-up dalam turnamen antar sekolah. Prestasi ini menunjukkan kerja sama tim dan dedikasi siswa dalam olahraga.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+                <div id="news-3" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>Workshop Digital bagi Siswa Bakat Teknologi</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 10 Januari 2025</p>
+                    <p>Workshop khusus untuk siswa berbakat teknologi akan dilaksanakan di laboratorium komputer dengan materi coding, desain, dan presentasi projek.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+                <div id="news-4" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>Festival Seni & Budaya 2024 Berhasil Digelar</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 20 November 2024</p>
+                    <p>Festival seni & budaya OSIS berlangsung meriah dengan penampilan tari, musik, dan karya seni siswa. Kegiatan ini mempererat kebersamaan seluruh civitas sekolah.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+                <div id="news-5" class="berita-article" style="margin-bottom: 60px;">
+                    <h2>Sekolah Siap Gelar Hari Bakti Lingkungan</h2>
+                    <p class="berita-date"><i class="fas fa-calendar-alt"></i> 5 Januari 2025</p>
+                    <p>Kegiatan bakti lingkungan akan melibatkan seluruh siswa, guru, dan staf sekolah untuk membersihkan halaman sekolah, menanam pohon, dan membangun taman belajar.</p>
+                    <a href="#top" class="btn btn-secondary">Kembali ke atas</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

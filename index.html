@@ -2,12 +2,245 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="Website Organisasi OSIS Sekolah - Platform komunikasi dan informasi OSIS terlengkap">
     <title>OSIS - Organisasi Siswa Intra Sekolah | Website Resmi</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Force desktop layout on all devices */
+        @media (max-width: 9999px) {
+            /* Override all responsive styles to maintain desktop layout */
+            .navbar .nav-menu {
+                display: flex !important;
+                position: static !important;
+                flex-direction: row !important;
+                background: transparent !important;
+                width: auto !important;
+                height: auto !important;
+                padding: 0 !important;
+                transform: none !important;
+                box-shadow: none !important;
+            }
+
+            .nav-toggle {
+                display: none !important;
+            }
+
+            .hero {
+                padding: 120px 0 80px !important;
+            }
+
+            .hero-content {
+                text-align: center !important;
+                max-width: 800px !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-title {
+                font-size: 4rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .hero-desc {
+                font-size: 1.2rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .stats-section {
+                padding: 80px 0 !important;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .dashboard {
+                padding: 80px 0 !important;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .galeri-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+                gap: 2rem !important;
+            }
+
+            .berita-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            .poster-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+                gap: 2rem !important;
+            }
+
+            .content-modal .modal-body {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 2rem !important;
+                padding: 2rem !important;
+            }
+
+            .content-modal .modal-content {
+                max-width: 1000px !important;
+                width: 95% !important;
+            }
+
+            .modal-gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+                gap: 1rem !important;
+            }
+
+            .modal-berita-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 2rem !important;
+            }
+
+            /* Force minimum font sizes */
+            body {
+                font-size: 16px !important;
+            }
+
+            h1 { font-size: 3rem !important; }
+            h2 { font-size: 2.5rem !important; }
+            h3 { font-size: 2rem !important; }
+            h4 { font-size: 1.5rem !important; }
+            p { font-size: 1rem !important; }
+
+            /* Ensure containers maintain desktop width */
+            .container {
+                max-width: 1200px !important;
+                margin: 0 auto !important;
+                padding: 0 2rem !important;
+            }
+
+            /* Force desktop spacing */
+            section {
+                padding: 80px 0 !important;
+            }
+
+            /* Ensure buttons remain desktop size */
+            .btn {
+                padding: 12px 24px !important;
+                font-size: 1rem !important;
+            }
+
+            /* Force desktop navbar */
+            .navbar {
+                padding: 1rem 2rem !important;
+            }
+
+            .nav-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem !important;
+            }
+
+            .nav-menu {
+                display: flex !important;
+                gap: 2rem !important;
+            }
+
+            .nav-link {
+                font-size: 1rem !important;
+            }
+
+            /* Force desktop hero section */
+            .hero-content {
+                margin-bottom: 2rem !important;
+            }
+
+            .hero-cta {
+                display: flex !important;
+                gap: 1rem !important;
+                justify-content: center !important;
+            }
+
+            /* Force desktop stats */
+            .stat-card {
+                padding: 2rem !important;
+                text-align: center !important;
+            }
+
+            .stat-card h3 {
+                font-size: 2.5rem !important;
+                margin: 1rem 0 !important;
+            }
+
+            /* Force desktop dashboard cards */
+            .dashboard-card {
+                padding: 2rem !important;
+            }
+
+            .dashboard-card h3 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Force desktop galeri items */
+            .galeri-item {
+                margin-bottom: 0 !important;
+            }
+
+            .galeri-info {
+                padding: 1.5rem !important;
+            }
+
+            /* Force desktop berita cards */
+            .berita-card {
+                margin-bottom: 0 !important;
+            }
+
+            .berita-content {
+                padding: 1.5rem !important;
+            }
+
+            /* Force desktop poster cards */
+            .poster-card {
+                margin-bottom: 0 !important;
+            }
+
+            .poster-info {
+                padding: 1.5rem !important;
+            }
+
+            /* Force desktop footer */
+            .footer-content {
+                margin-bottom: 2rem !important;
+            }
+
+            .footer-section h4 {
+                margin-bottom: 1rem !important;
+            }
+
+            /* Ensure no mobile-specific styles override */
+            .mobile-menu,
+            .mobile-nav,
+            .hamburger,
+            .menu-toggle {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- LOADING SCREEN -->
@@ -170,13 +403,26 @@
                             <span class="metric-label">% Kepuasan Siswa</span>
                         </div>
                     </div>
-                </div>
-
                 <div class="dashboard-card">
                     <div class="dashboard-header">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Pencapaian</h3>
+                        <i class="fas fa-images"></i>
+                        <h3>Konten Galeri</h3>
                     </div>
+                    <div class="dashboard-content">
+                        <div class="metric">
+                            <span class="metric-value" id="galeriCount">0</span>
+                            <span class="metric-label">Foto di Galeri</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="beritaCount">0</span>
+                            <span class="metric-label">Artikel Berita</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="totalViews">0</span>
+                            <span class="metric-label">Total Kunjungan</span>
+                        </div>
+                    </div>
+                </div>
                     <div class="dashboard-content">
                         <div class="achievement-item">
                             <div class="achievement-icon">
@@ -354,6 +600,107 @@
                     <div class="image-placeholder">
                         <i class="fas fa-image"></i>
                         <p>Foto Kebersamaan OSIS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEJARAH OSIS -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title">📚 Sejarah OSIS</h2>
+            <p class="section-subtitle">Sejarah OSIS ditempatkan di bawah bagian Tentang OSIS agar alur informasi lebih jelas dan terstruktur.</p>
+            <p class="section-description">Bersama bagian Tentang OSIS, ini membantu siswa memahami perjalanan organisasi sebelum melihat struktur dan program kerja.</p>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>Pendirian OSIS</h3>
+                        <p>OSIS resmi didirikan sebagai wadah aspirasi siswa. Dimulai dengan 25 anggota pertama yang memiliki visi membangun sekolah lebih baik.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-users"></i> 25 Anggota</span>
+                            <span><i class="fas fa-flag"></i> 3 Program</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3>Era Modernisasi</h3>
+                        <p>OSIS mulai mengadopsi teknologi digital. Website pertama OSIS diluncurkan dan media sosial mulai digunakan untuk komunikasi.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-globe"></i> Website Baru</span>
+                            <span><i class="fas fa-mobile-alt"></i> Sosial Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Prestasi Tingkat Kota</h3>
+                        <p>OSIS berhasil meraih juara 1 dalam kompetisi OSIS tingkat kota. Program-program inovatif mendapat penghargaan dari dinas pendidikan.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-medal"></i> Juara 1 Kota</span>
+                            <span><i class="fas fa-award"></i> 5 Penghargaan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Adaptasi Era Pandemi</h3>
+                        <p>OSIS beradaptasi dengan situasi pandemi. Program-program dilaksanakan secara daring dan fokus pada kesehatan mental siswa.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-laptop"></i> 15 Program Online</span>
+                            <span><i class="fas fa-heart"></i> Dukungan Mental</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Era Digital Terintegrasi</h3>
+                        <p>OSIS meluncurkan sistem digital terintegrasi. Website modern, aplikasi mobile, dan sistem aspirasi online menjadi fokus utama.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-code"></i> Website Modern</span>
+                            <span><i class="fas fa-robot"></i> AI Chatbot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item current">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Masa Depan Cerah</h3>
+                        <p>OSIS terus berkembang dengan inovasi terbaru. Fokus pada pengembangan karakter, prestasi akademik, dan kesejahteraan siswa.</p>
+                        <div class="timeline-stats">
+                            <span><i class="fas fa-target"></i> 100+ Program</span>
+                            <span><i class="fas fa-users"></i> 44 Anggota</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -967,7 +1314,7 @@
 
             <div class="galeri-cta">
                 <p>Ingin lihat lebih banyak foto?</p>
-                <a href="#" class="btn btn-primary">
+                <a href="galeri.html" class="btn btn-primary">
                     <i class="fas fa-image"></i> Lihat Album Lengkap
                 </a>
             </div>
@@ -990,7 +1337,7 @@
                         <h3>[JUDUL PENGUMUMAN 1]</h3>
                         <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
                         <p class="berita-desc">[DESKRIPSI PENGUMUMAN - Informasi penting yang perlu diketahui oleh seluruh siswa tentang acara atau kebijakan OSIS]</p>
-                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                        <a href="berita.html#berita-0" class="berita-link">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -1003,7 +1350,7 @@
                         <h3>[JUDUL BERITA 1]</h3>
                         <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
                         <p class="berita-desc">[DESKRIPSI BERITA - Cerita tentang kegiatan OSIS, pencapaian, atau event yang telah dilaksanakan]</p>
-                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                        <a href="berita.html#berita-1" class="berita-link">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -1016,13 +1363,13 @@
                         <h3>[JUDUL UPDATE 1]</h3>
                         <p class="berita-date"><i class="fas fa-calendar-alt"></i> [TANGGAL]</p>
                         <p class="berita-desc">[DESKRIPSI UPDATE - Informasi terbaru mengenai perubahan kebijakan, jadwal, atau keputusan penting OSIS]</p>
-                        <a href="#" class="berita-link">Baca Selengkapnya →</a>
+                        <a href="berita.html#berita-2" class="berita-link">Baca Selengkapnya →</a>
                     </div>
                 </div>
             </div>
 
             <div class="berita-cta">
-                <a href="#" class="btn btn-primary">
+                <a href="berita.html" class="btn btn-primary">
                     <i class="fas fa-arrow-right"></i> Lihat Semua Berita
                 </a>
             </div>
@@ -1342,6 +1689,7 @@
         <div class="container">
             <h2 class="section-title">Sampaikan Aspirasimu</h2>
             <p class="section-subtitle">Kami mendengarkan setiap suara siswa. Kirimkan aspirasi, saran, atau masukan Anda kepada kami.</p>
+            <p class="section-note">Suara siswa kami tampung sebagai prioritas dan ditindaklanjuti oleh tim OSIS.</p>
 
             <div class="aspirasi-wrapper">
                 <div class="aspirasi-info">
@@ -1431,192 +1779,6 @@
             </div>
         </div>
     </section>
-
-    <!-- ========== GAMES SECTION ========== -->
-    <section id="games" class="games">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <i class="fas fa-gamepad"></i>
-                    Games OSIS
-                </h2>
-                <p class="section-subtitle">Bermain sambil belajar tentang OSIS! Nikmati berbagai game interaktif yang edukatif dan menyenangkan.</p>
-            </div>
-
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-header">
-                        <div class="game-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>OSIS Quiz Challenge</h3>
-                    </div>
-                    <div class="game-description">
-                        <p>Test pengetahuanmu tentang OSIS dengan quiz interaktif! Jawab pertanyaan dengan benar untuk mendapatkan skor tertinggi.</p>
-                        <div class="game-stats">
-                            <span><i class="fas fa-clock"></i> 5-10 menit</span>
-                            <span><i class="fas fa-star"></i> Edukatif</span>
-                        </div>
-                    </div>
-                    <button class="game-play-btn" onclick="startQuizGame()">
-                        <i class="fas fa-play"></i>
-                        Mainkan Sekarang
-                    </button>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-header">
-                        <div class="game-icon">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <h3>Memory Card OSIS</h3>
-                    </div>
-                    <div class="game-description">
-                        <p>Cocokkan kartu dengan logo dan simbol OSIS! Latih daya ingat dan konsentrasimu dengan game yang menyenangkan.</p>
-                        <div class="game-stats">
-                            <span><i class="fas fa-clock"></i> 3-5 menit</span>
-                            <span><i class="fas fa-brain"></i> Latih Otak</span>
-                        </div>
-                    </div>
-                    <button class="game-play-btn" onclick="startMemoryGame()">
-                        <i class="fas fa-play"></i>
-                        Mainkan Sekarang
-                    </button>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-header">
-                        <div class="game-icon">
-                            <i class="fas fa-dragon"></i>
-                        </div>
-                        <h3>Snake OSIS</h3>
-                    </div>
-                    <div class="game-description">
-                        <p>Kontrol ular untuk mengumpulkan poin! Hindari tembok dan tubuh sendiri. Game klasik dengan tema OSIS yang seru!</p>
-                        <div class="game-stats">
-                            <span><i class="fas fa-clock"></i> Unlimited</span>
-                            <span><i class="fas fa-trophy"></i> High Score</span>
-                        </div>
-                    </div>
-                    <button class="game-play-btn" onclick="startSnakeGame()">
-                        <i class="fas fa-play"></i>
-                        Mainkan Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <div class="game-modal" id="gameModal">
-                <div class="game-modal-overlay" onclick="closeGameModal()"></div>
-                <div class="game-modal-content">
-                    <div class="game-modal-header">
-                        <h3 id="gameModalTitle">Game Title</h3>
-                        <button class="game-modal-close" onclick="closeGameModal()">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="game-modal-body" id="gameModalBody">
-                        <!-- Game content will be loaded here -->
-                    </div>
-    <!-- TIMELINE SEJARAH OSIS -->
-    <section id="timeline" class="timeline">
-        <div class="container">
-            <h2 class="section-title">📚 Sejarah OSIS</h2>
-            <p class="section-subtitle">Perjalanan panjang OSIS dalam membangun karakter siswa</p>
-
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2010</div>
-                        <h3>Pendirian OSIS</h3>
-                        <p>OSIS resmi didirikan sebagai wadah aspirasi siswa. Dimulai dengan 25 anggota pertama yang memiliki visi membangun sekolah lebih baik.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-users"></i> 25 Anggota</span>
-                            <span><i class="fas fa-flag"></i> 3 Program</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2015</div>
-                        <h3>Era Modernisasi</h3>
-                        <p>OSIS mulai mengadopsi teknologi digital. Website pertama OSIS diluncurkan dan media sosial mulai digunakan untuk komunikasi.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-globe"></i> Website Baru</span>
-                            <span><i class="fas fa-mobile-alt"></i> Sosial Media</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2018</div>
-                        <h3>Prestasi Tingkat Kota</h3>
-                        <p>OSIS berhasil meraih juara 1 dalam kompetisi OSIS tingkat kota. Program-program inovatif mendapat penghargaan dari dinas pendidikan.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-medal"></i> Juara 1 Kota</span>
-                            <span><i class="fas fa-award"></i> 5 Penghargaan</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2020</div>
-                        <h3>Adaptasi Era Pandemi</h3>
-                        <p>OSIS beradaptasi dengan situasi pandemi. Program-program dilaksanakan secara daring dan fokus pada kesehatan mental siswa.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-laptop"></i> 15 Program Online</span>
-                            <span><i class="fas fa-heart"></i> Dukungan Mental</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023</div>
-                        <h3>Era Digital Terintegrasi</h3>
-                        <p>OSIS meluncurkan sistem digital terintegrasi. Website modern, aplikasi mobile, dan sistem aspirasi online menjadi fokus utama.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-code"></i> Website Modern</span>
-                            <span><i class="fas fa-robot"></i> AI Chatbot</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item current">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2024</div>
-                        <h3>Masa Depan Cerah</h3>
-                        <p>OSIS terus berkembang dengan inovasi terbaru. Fokus pada pengembangan karakter, prestasi akademik, dan kesejahteraan siswa.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-target"></i> 100+ Program</span>
-                            <span><i class="fas fa-users"></i> 44 Anggota</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <section id="testimonial" class="testimonial">
         <div class="container">
@@ -1775,7 +1937,172 @@
         </div>
     </section>
 
+    <!-- ========== GAMES SECTION ========== -->
+    <section id="games" class="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    Games OSIS
+                </h2>
+                <p class="section-subtitle">Bermain sambil belajar tentang OSIS! Nikmati berbagai game interaktif yang edukatif dan menyenangkan.</p>
+            </div>
 
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>OSIS Quiz Challenge</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Test pengetahuanmu tentang OSIS dengan quiz interaktif! Jawab pertanyaan dengan benar untuk mendapatkan skor tertinggi.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 5-10 menit</span>
+                            <span><i class="fas fa-star"></i> Edukatif</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startQuizGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Memory Card OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Cocokkan kartu dengan logo dan simbol OSIS! Latih daya ingat dan konsentrasimu dengan game yang menyenangkan.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 3-5 menit</span>
+                            <span><i class="fas fa-brain"></i> Latih Otak</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startMemoryGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3>Snake OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Kontrol ular untuk mengumpulkan poin! Hindari tembok dan tubuh sendiri. Game klasik dengan tema OSIS yang seru!</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> Unlimited</span>
+                            <span><i class="fas fa-trophy"></i> High Score</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startSnakeGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h3>Tebak Angka OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Tebak angka rahasia dari 1 sampai 30. Latih intuisi dan coba kalahkan rekanmu dengan sedikit keberuntungan.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 2-5 menit</span>
+                            <span><i class="fas fa-bolt"></i> Cepat</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startGuessNumberGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-random"></i>
+                        </div>
+                        <h3>Word Scramble OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Susun kata-kata OSIS yang acak. Game ini membantu kamu mengenal istilah OSIS sambil mengasah kosa kata.</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 3-6 menit</span>
+                            <span><i class="fas fa-lightbulb"></i> Kreatif</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startScrambleGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-chess-board"></i>
+                        </div>
+                        <h3>Tic Tac Toe OSIS</h3>
+                    </div>
+                    <div class="game-description">
+                        <p>Bersaing dengan temanmu dalam permainan klasik 3x3. Siapa cepat dia dapat kemenangan!</p>
+                        <div class="game-stats">
+                            <span><i class="fas fa-clock"></i> 5-10 menit</span>
+                            <span><i class="fas fa-users"></i> Multiplayer</span>
+                        </div>
+                    </div>
+                    <button class="game-play-btn" onclick="startTicTacToeGame()">
+                        <i class="fas fa-play"></i>
+                        Mainkan Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <div class="games-footer-info">
+                <div class="info-card">
+                    <h4>Informasi Resmi OSIS</h4>
+                    <p>Website resmi OSIS: <strong>osis.sekolah.ac.id</strong></p>
+                    <p>Jangan lupa kunjungi website resmi untuk berita terbaru, jadwal acara, serta pengumuman penting.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Kontak & Lokasi</h4>
+                    <p>WhatsApp: <strong>+62 812-3456-7890</strong></p>
+                    <p>Ruang OSIS: Gedung Utama Lantai 2, Ruang 206</p>
+                </div>
+            </div>
+
+            <div class="game-note">
+                <p><strong>Catatan:</strong> Semua game ini dirancang untuk menghibur sekaligus membantu siswa memahami OSIS secara menyenangkan. Kunjungi website resmi OSIS untuk informasi lengkap, kontak, dan formulir aspirasi.</p>
+            </div>
+
+            <div class="game-modal" id="gameModal">
+                <div class="game-modal-overlay" onclick="closeGameModal()"></div>
+                <div class="game-modal-content">
+                    <div class="game-modal-header">
+                        <h3 id="gameModalTitle">Game Title</h3>
+                        <button class="game-modal-close" onclick="closeGameModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="game-modal-body" id="gameModalBody">
+                        <!-- Game content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="lokasi" class="lokasi">
         <div class="container">
             <h2 class="section-title">📍 Lokasi & Peta</h2>
@@ -2003,18 +2330,7 @@
                 </div>
             </div>
 
-            <div class="contact-form-wrapper">
-                <h3>Kontak Email Resmi</h3>
-                <p>Isi formulir berikut untuk mengirim pesan langsung ke email OSIS. Gunakan alamat email kamu agar kami bisa membalas.</p>
-                <form class="contact-form" action="mailto:osis@sekolah.sch.id" method="post" enctype="text/plain">
-                    <div class="form-row">
-                        <input type="text" name="name" placeholder="Nama lengkap" required>
-                        <input type="email" name="email" placeholder="Alamat email" required>
-                    </div>
-                    <textarea name="message" rows="5" placeholder="Tulis pesan atau aspirasi di sini..." required></textarea>
-                    <button type="submit" class="btn btn-primary">Kirim Email</button>
-                </form>
-            </div>
+
         </div>
     </section>
 
@@ -2064,7 +2380,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 OSIS - Organisasi Siswa Intra Sekolah. All rights reserved.</p>
+                <p>copy; 2024 OSIS - Organisasi Siswa Intra Sekolah. All rights reserved.</p>
                 <p>Dibuat dengan <i class="fas fa-heart"></i> oleh OSIS</p>
             </div>
         </div>
@@ -2087,14 +2403,43 @@
                     <div class="image-placeholder"><i class="fas fa-image"></i></div>
                 </div>
                 <div class="modal-info">
-                    <h2 id="modalTitle">[JUDUL POSTER]</h2>
-                    <p class="modal-date"><i class="fas fa-calendar-alt"></i> <span id="modalDate">[TANGGAL]</span></p>
-                    <p class="modal-description" id="modalDescription">[DESKRIPSI LENGKAP POSTER]</p>
+                    <h2 id="posterModalTitle">[JUDUL POSTER]</h2>
+                    <p class="modal-date"><i class="fas fa-calendar-alt"></i> <span id="posterModalDate">[TANGGAL]</span></p>
+                    <p class="modal-description" id="posterModalDescription">[DESKRIPSI LENGKAP POSTER]</p>
                     <div class="modal-actions">
                         <button class="btn btn-primary" onclick="downloadPoster()">
                             <i class="fas fa-download"></i> Unduh Poster
                         </button>
                         <button class="btn btn-secondary" onclick="sharePosterModal()">
+                            <i class="fas fa-share-alt"></i> Bagikan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT MODAL FOR GALERI & BERITA -->
+    <div class="content-modal" id="contentModal">
+        <div class="modal-overlay" onclick="closeContentModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContentModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImageContainer">
+                    <div class="image-placeholder"><i class="fas fa-image"></i></div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-badge" id="modalBadge"></div>
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-date"><i class="fas fa-calendar-alt"></i> <span id="modalDate"></span></p>
+                    <div class="modal-description" id="modalDescription"></div>
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" onclick="closeContentModal()">
+                            <i class="fas fa-arrow-left"></i> Kembali
+                        </button>
+                        <button class="btn btn-primary" onclick="shareContent()">
                             <i class="fas fa-share-alt"></i> Bagikan
                         </button>
                     </div>
@@ -2147,6 +2492,118 @@
         </div>
     </div>
 
+    <script>
+        // Fallback modal open functions in case main.js has a load/runtime error
+        function openGaleriModal() {
+            const modal = document.getElementById('contentModal');
+            if (!modal) return;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openBeritaModal(index) {
+            const modal = document.getElementById('contentModal');
+            if (!modal) return;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openBeritaListModal() {
+            const modal = document.getElementById('contentModal');
+            if (!modal) return;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    </script>
     <script src="main.js"></script>
+    <script>
+        // Force desktop layout on all devices
+        (function() {
+            // Prevent zoom on mobile devices
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            document.addEventListener('gesturestart', function(e) {
+                e.preventDefault();
+            });
+
+            // Force desktop viewport
+            function setDesktopViewport() {
+                const viewport = document.querySelector('meta[name=viewport]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=1024, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0');
+                }
+
+                // Force body to desktop width
+                document.body.style.minWidth = '1024px';
+                document.body.style.width = '100%';
+                document.body.style.overflowX = 'auto';
+            }
+
+            // Apply immediately and on resize
+            setDesktopViewport();
+            window.addEventListener('resize', setDesktopViewport);
+            window.addEventListener('orientationchange', function() {
+                setTimeout(setDesktopViewport, 100);
+            });
+
+            // Prevent mobile browser UI changes
+            window.addEventListener('load', function() {
+                // Force fullscreen-like experience
+                if (window.navigator.standalone === false) {
+                    // Not in standalone mode, ensure desktop layout
+                    document.documentElement.style.setProperty('--vh', window.innerHeight + 'px');
+                }
+            });
+
+            // Override any responsive behavior
+            const style = document.createElement('style');
+            style.textContent = `
+                /* Force desktop layout globally */
+                * {
+                    box-sizing: border-box;
+                }
+
+                html, body {
+                    width: 100%;
+                    min-width: 1024px;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .container {
+                    max-width: 1200px !important;
+                    margin: 0 auto !important;
+                    padding: 0 2rem !important;
+                }
+
+                /* Ensure all grids maintain desktop layout */
+                .stats-grid, .dashboard-grid, .galeri-grid, .berita-grid, .poster-grid {
+                    display: grid !important;
+                }
+
+                /* Force navbar to always show desktop version */
+                .nav-menu {
+                    display: flex !important;
+                    position: static !important;
+                    flex-direction: row !important;
+                    background: transparent !important;
+                    width: auto !important;
+                    height: auto !important;
+                    padding: 0 !important;
+                    transform: none !important;
+                    box-shadow: none !important;
+                }
+
+                .nav-toggle {
+                    display: none !important;
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
 </body>
 </html>

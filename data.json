@@ -422,27 +422,144 @@
   "galeri": [
     {
       "id": 1,
-      "judul": "[JUDUL FOTO]",
-      "deskripsi": "[DESKRIPSI FOTO]",
+      "judul": "Pelantikan Pengurus OSIS 2024",
+      "deskripsi": "Moment bersejarah pelantikan pengurus OSIS periode 2024-2025 yang dihadiri oleh seluruh siswa dan guru. Acara ini menandai awal perjalanan baru OSIS dalam membangun karakter siswa.",
       "kategori": "kegiatan",
       "foto": "images/galeri-1.jpg",
-      "tanggal": "2024-01-15"
+      "tanggal": "2024-07-15",
+      "lokasi": "Aula Utama Sekolah"
     },
     {
       "id": 2,
-      "judul": "[JUDUL FOTO]",
-      "deskripsi": "[DESKRIPSI FOTO]",
-      "kategori": "profil",
+      "judul": "Workshop Kepemimpinan Siswa",
+      "deskripsi": "Workshop intensif tentang kepemimpinan yang diikuti oleh 50 siswa terpilih. Para peserta belajar tentang manajemen waktu, komunikasi efektif, dan pengambilan keputusan.",
+      "kategori": "kegiatan",
       "foto": "images/galeri-2.jpg",
-      "tanggal": "2024-01-14"
+      "tanggal": "2024-08-20",
+      "lokasi": "Ruang OSIS"
     },
     {
       "id": 3,
-      "judul": "[JUDUL FOTO]",
-      "deskripsi": "[DESKRIPSI FOTO]",
+      "judul": "Lomba OSIS Tingkat Kota",
+      "deskripsi": "OSIS berhasil meraih juara 1 dalam lomba OSIS tingkat kota dengan kategori program kreativitas. Prestasi ini membanggakan seluruh warga sekolah.",
       "kategori": "acara",
       "foto": "images/galeri-3.jpg",
-      "tanggal": "2024-01-13"
+      "tanggal": "2024-09-10",
+      "lokasi": "GOR Utama Kota"
+    },
+    {
+      "id": 4,
+      "judul": "Bakti Sosial Desa Terpencil",
+      "deskripsi": "Program bakti sosial OSIS ke desa terpencil dengan membagikan sembako, mengajar anak-anak, dan membersihkan lingkungan. Program ini mendapat apresiasi dari masyarakat setempat.",
+      "kategori": "kegiatan",
+      "foto": "images/galeri-4.jpg",
+      "tanggal": "2024-10-05",
+      "lokasi": "Desa Sukamaju"
+    },
+    {
+      "id": 5,
+      "judul": "Festival Seni & Budaya",
+      "deskripsi": "Festival tahunan yang menampilkan berbagai pertunjukan seni dari siswa-siswi berbakat. Acara ini menjadi ajang unjuk kreativitas dan mempererat tali persaudaraan.",
+      "kategori": "acara",
+      "foto": "images/galeri-5.jpg",
+      "tanggal": "2024-11-15",
+      "lokasi": "Lapangan Sekolah"
+    },
+    {
+      "id": 6,
+      "judul": "Kunjungan Industri ke Pabrik",
+      "deskripsi": "Study tour ke pabrik terkemuka untuk melihat proses produksi langsung. Siswa mendapat wawasan tentang dunia kerja dan teknologi industri modern.",
+      "kategori": "kegiatan",
+      "foto": "images/galeri-6.jpg",
+      "tanggal": "2024-12-01",
+      "lokasi": "PT. Maju Jaya Industri"
+    },
+    {
+      "id": 7,
+      "judul": "Struktur Organisasi OSIS",
+      "deskripsi": "Susunan kepengurusan OSIS lengkap dengan foto-foto pengurus inti dan bidang-bidang kerja. Setiap anggota memiliki peran penting dalam menggerakkan roda organisasi.",
+      "kategori": "profil",
+      "foto": "images/galeri-7.jpg",
+      "tanggal": "2024-07-01",
+      "lokasi": "Ruang OSIS"
+    },
+    {
+      "id": 8,
+      "judul": "Pentas Musik Akhir Tahun",
+      "deskripsi": "Pentas seni terbesar tahun ini dengan penampilan band sekolah dan paduan suara. Acara ini menjadi penutup tahun ajaran yang meriah dan penuh kenangan.",
+      "kategori": "acara",
+      "foto": "images/galeri-8.jpg",
+      "tanggal": "2024-12-20",
+      "lokasi": "Aula Sekolah"
+    }
+  ],
+
+  "berita": [
+    {
+      "id": 1,
+      "judul": "OSIS Raih Juara 1 Lomba Tingkat Kota",
+      "tipe": "Berita",
+      "tanggal": "15 Desember 2024",
+      "deskripsi": "OSIS SMA Negeri 1 Jakarta berhasil meraih juara 1 dalam lomba OSIS tingkat kota dengan kategori program kreativitas. Prestasi ini membanggakan seluruh warga sekolah.",
+      "kontenLengkap": "Dalam lomba yang diadakan di GOR Utama Kota Jakarta pada tanggal 10 Desember 2024, OSIS SMA Negeri 1 Jakarta berhasil meraih juara 1 dalam kategori Program Kreativitas. Tim OSIS yang terdiri dari 15 siswa terpilih berhasil mengalahkan 25 sekolah peserta lainnya dengan program 'Go Green School' yang mengintegrasikan pendidikan lingkungan dengan teknologi digital.\n\nProgram inovatif ini mendapat nilai tertinggi dari dewan juri karena berhasil menggabungkan edukasi, teknologi, dan aksi nyata dalam menjaga kelestarian lingkungan. Kepala Sekolah, Drs. Ahmad Rahman, M.Pd., menyatakan bangga dengan prestasi ini dan berharap OSIS dapat terus berkontribusi untuk kemajuan sekolah.\n\nKetua OSIS, Rina Sari, mengatakan bahwa kemenangan ini adalah hasil kerja keras seluruh anggota OSIS selama 6 bulan terakhir. 'Ini bukan hanya kemenangan untuk OSIS, tapi untuk seluruh siswa SMA Negeri 1 Jakarta,' ujarnya.\n\nPiala dan piagam penghargaan telah diterima oleh perwakilan OSIS pada acara penutupan lomba. OSIS berencana mengembangkan program ini menjadi program sekolah yang berkelanjutan.",
+      "gambar": "images/berita-1.jpg",
+      "penulis": "Tim Redaksi OSIS",
+      "kategori": "Prestasi"
+    },
+    {
+      "id": 2,
+      "judul": "Pelantikan Pengurus OSIS Periode 2024-2025",
+      "tipe": "Pengumuman",
+      "tanggal": "20 Juli 2024",
+      "deskripsi": "Pelantikan pengurus OSIS periode 2024-2025 telah dilaksanakan dengan khidmat. Acara ini dihadiri oleh seluruh siswa dan guru pembimbing.",
+      "kontenLengkap": "Pelantikan pengurus OSIS periode 2024-2025 telah dilaksanakan pada hari Sabtu, 15 Juli 2024 di Aula Utama SMA Negeri 1 Jakarta. Acara yang berlangsung khidmat ini dihadiri oleh seluruh siswa, guru, dan staf sekolah.\n\nKetua OSIS terpilih, Rina Sari (XII IPA 1), dalam sambutannya menyatakan komitmen untuk membawa OSIS menuju prestasi yang lebih tinggi. 'Kami akan fokus pada pengembangan karakter siswa, peningkatan prestasi akademik, dan kontribusi nyata untuk kemajuan sekolah,' ujarnya.\n\nSusunan pengurus OSIS periode ini terdiri dari:\n• Ketua: Rina Sari (XII IPA 1)\n• Wakil Ketua: Budi Santoso (XII IPS 2)\n• Sekretaris: Maya Putri & Dian Anggraini\n• Bendahara: Andi Wijaya & Sari Dewi\n• 6 Bidang Kerja dengan total 24 anggota\n\nPembina OSIS, Dra. Siti Aminah, M.Pd., berharap pengurus baru dapat melanjutkan program-program unggulan OSIS dan menciptakan inovasi baru. 'OSIS adalah wadah untuk mengembangkan potensi siswa. Tunjukkan bahwa kalian adalah generasi penerus yang berkualitas,' pesannya.\n\nAcara ditutup dengan doa bersama dan foto keluarga OSIS.",
+      "gambar": "images/berita-2.jpg",
+      "penulis": "Sekretariat OSIS",
+      "kategori": "Organisasi"
+    },
+    {
+      "id": 3,
+      "judul": "Workshop Kepemimpinan Sukses Digelar",
+      "tipe": "Berita",
+      "tanggal": "25 Agustus 2024",
+      "deskripsi": "Workshop kepemimpinan yang diikuti 50 siswa terpilih telah selesai dengan sukses. Peserta mendapat banyak wawasan tentang leadership dan organisasi.",
+      "kontenLengkap": "Workshop Kepemimpinan OSIS yang digelar selama 3 hari (20-22 Agustus 2024) telah berakhir dengan sukses. Acara yang diikuti oleh 50 siswa terpilih dari berbagai kelas ini mendapat sambutan antusias dari peserta.\n\nWorkshop yang bertemakan 'Leadership for Change' menghadirkan pembicara-pembicara inspiratif dari dunia pendidikan dan bisnis. Materi yang disampaikan meliputi:\n\n1. Dasar-dasar kepemimpinan efektif\n2. Manajemen waktu dan prioritas\n3. Komunikasi interpersonal\n4. Pengambilan keputusan strategis\n5. Team building dan kolaborasi\n\nSalah satu peserta, Ahmad Fauzi (XI IPA 1), mengatakan bahwa workshop ini sangat bermanfaat. 'Saya belajar banyak tentang bagaimana menjadi leader yang baik. Teknik-teknik yang diajarkan langsung bisa saya praktikkan di kehidupan sehari-hari,' ujarnya.\n\nKetua OSIS, Rina Sari, menyatakan bahwa workshop ini adalah bagian dari program pengembangan siswa. 'Kami ingin mencetak generasi muda yang tidak hanya cerdas secara akademik, tapi juga memiliki kemampuan leadership yang kuat,' jelasnya.\n\nWorkshop ini direncanakan akan menjadi agenda rutin tahunan OSIS untuk mengembangkan potensi kepemimpinan siswa.",
+      "gambar": "images/berita-3.jpg",
+      "penulis": "Bidang Akademik OSIS",
+      "kategori": "Pendidikan"
+    },
+    {
+      "id": 4,
+      "judul": "Program Bakti Sosial ke Desa Terpencil",
+      "tipe": "Berita",
+      "tanggal": "10 Oktober 2024",
+      "deskripsi": "OSIS melaksanakan program bakti sosial ke desa terpencil dengan membagikan sembako dan mengajar anak-anak. Program mendapat apresiasi masyarakat.",
+      "kontenLengkap": "Program bakti sosial OSIS ke Desa Sukamaju pada tanggal 5 Oktober 2024 mendapat sambutan hangat dari masyarakat setempat. Kegiatan yang melibatkan 30 siswa OSIS ini merupakan wujud kepedulian sosial organisasi.\n\nBerbagai kegiatan telah dilaksanakan selama di desa tersebut:\n\n• Pembagian sembako kepada 50 keluarga kurang mampu\n• Pengajaran anak-anak SD tentang membaca dan menulis\n• Pembersihan lingkungan dan sungai\n• Penanaman pohon di area gundul\n• Pemeriksaan kesehatan gratis\n\nKepala Desa Sukamaju, Bapak Sumarno, mengucapkan terima kasih atas kunjungan OSIS. 'Ini adalah kunjungan pertama dari sekolah kota ke desa kami. Anak-anak sangat antusias belajar dengan kakak-kakak siswa OSIS,' ujarnya.\n\nSalah satu peserta, Putri Amelia (XI IPA 1), menceritakan pengalamannya. 'Melihat kondisi di desa membuat saya sadar betapa beruntungnya kami. Saya berjanji akan terus membantu masyarakat yang membutuhkan,' katanya.\n\nProgram ini mendapat dukungan penuh dari sekolah dan diharapkan dapat menjadi agenda rutin OSIS setiap semester. OSIS berencana mengembangkan program ini dengan melibatkan lebih banyak siswa dan memperluas jangkauan ke desa-desa lain.",
+      "gambar": "images/berita-4.jpg",
+      "penulis": "Bidang Sosial OSIS",
+      "kategori": "Sosial"
+    },
+    {
+      "id": 5,
+      "judul": "Festival Seni & Budaya 2024 Berhasil Digelar",
+      "tipe": "Berita",
+      "tanggal": "20 November 2024",
+      "deskripsi": "Festival Seni & Budaya tahunan OSIS berlangsung meriah dengan penampilan dari berbagai ekstrakurikuler seni. Acara dihadiri ribuan siswa.",
+      "kontenLengkap": "Festival Seni & Budaya OSIS 2024 yang digelar pada tanggal 15 November 2024 di lapangan sekolah berlangsung dengan sangat meriah. Acara yang menjadi agenda tahunan ini dihadiri oleh lebih dari 1000 siswa dan guru.\n\nBeragam pertunjukan seni ditampilkan dalam festival ini:\n\n• Tarian tradisional dari Sanggar Tari Sekolah\n• Musik band dengan penampilan 5 grup musik\n• Paduan suara dengan 80 penyanyi\n• Teater musikal 'Kisah Perjuangan Siswa'\n• Fashion show dengan tema 'Budaya Nusantara'\n• Stand kuliner khas daerah\n\nKepala Sekolah, Drs. Ahmad Rahman, M.Pd., dalam sambutannya menyatakan bahwa festival ini adalah wujud kreativitas siswa. 'OSIS telah berhasil menciptakan ajang untuk menampilkan bakat siswa. Ini adalah investasi untuk masa depan anak-anak kita,' ujarnya.\n\nKetua OSIS, Rina Sari, menambahkan bahwa festival ini juga menjadi sarana untuk mempererat tali persaudaraan antar siswa. 'Melalui seni, kita bisa saling memahami dan menghargai perbedaan,' jelasnya.\n\nFestival ditutup dengan penampilan kembang api dan pengumuman pemenang lomba stand kuliner. OSIS berencana meningkatkan kualitas festival tahun depan dengan mengundang artis tamu dan memperluas jangkauan peserta.",
+      "gambar": "images/berita-5.jpg",
+      "penulis": "Bidang Kreativitas OSIS",
+      "kategori": "Seni"
+    },
+    {
+      "id": 6,
+      "judul": "Perubahan Jadwal Ujian Akhir Semester",
+      "tipe": "Pengumuman",
+      "tanggal": "1 Desember 2024",
+      "deskripsi": "Pengumuman penting: Jadwal ujian akhir semester mengalami perubahan. Siswa diminta memperhatikan jadwal baru yang telah diumumkan.",
+      "kontenLengkap": "PENGUMUMAN PENTING\n\nKepada seluruh siswa SMA Negeri 1 Jakarta,\n\nDengan ini diberitahukan bahwa jadwal Ujian Akhir Semester (UAS) mengalami perubahan sebagai berikut:\n\n1. UAS dimajukan dari tanggal 15-25 Desember menjadi 10-20 Desember 2024\n2. Ujian praktikum Fisika dan Kimia dimajukan ke tanggal 8-9 Desember\n3. Masa persiapan rapor diperpanjang menjadi 21-23 Desember\n\nPerubahan jadwal ini dilakukan untuk memberikan waktu yang cukup bagi persiapan liburan akhir tahun dan kegiatan OSIS akhir tahun.\n\nSiswa diminta untuk:\n• Memperhatikan pengumuman di papan sekolah\n• Mengkonfirmasi jadwal dengan wali kelas\n• Memanfaatkan waktu persiapan dengan baik\n• Mengikuti semua ujian sesuai jadwal baru\n\nUntuk informasi lebih detail, dapat menghubungi guru wali kelas atau sekretariat OSIS.\n\nAtas perhatiannya, kami ucapkan terima kasih.\n\nOSIS SMA Negeri 1 Jakarta",
+      "gambar": "images/berita-6.jpg",
+      "penulis": "Sekretariat OSIS",
+      "kategori": "Akademik"
     }
   ],
 

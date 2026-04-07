@@ -12,12 +12,14 @@ window.addEventListener('load', () => {
 });
 
 // ========== NAVBAR FUNCTIONALITY ==========
+// Note: Mobile menu functionality disabled to force desktop layout
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 const navbar = document.getElementById('navbar');
 
-// Toggle mobile menu
+// Mobile menu functionality DISABLED - Force desktop layout
+/*
 navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
@@ -37,8 +39,9 @@ navLinks.forEach(link => {
         document.body.style.overflow = '';
     });
 });
+*/
 
-// Active link on scroll
+// Active link on scroll (kept for navigation highlighting)
 window.addEventListener('scroll', () => {
     let current = '';
     
@@ -62,6 +65,8 @@ window.addEventListener('scroll', () => {
 // ========== STATISTICS COUNTER ==========
 const statsCards = document.querySelectorAll('.stat-card');
 let statsAnimated = false;
+let galeriData = [];
+let beritaData = [];
 
 const observerStats = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -111,9 +116,9 @@ tabBtns.forEach(btn => {
     });
 });
 
-// ========== GALERI FILTER ==========
+// ========== GALERI & BERITA FILTER ==========
 const filterBtns = document.querySelectorAll('.filter-btn');
-const galeriItems = document.querySelectorAll('.galeri-item');
+const filterItems = document.querySelectorAll('.galeri-item, .news-card');
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -124,10 +129,11 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
         
         // Filter items with stagger animation
-        galeriItems.forEach((item, index) => {
+        filterItems.forEach((item, index) => {
+            if (!item.getAttribute('data-category')) return;
             if (filter === 'all' || item.getAttribute('data-category') === filter) {
                 item.classList.remove('hidden');
-                item.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+                item.style.animation = `fadeInUp 0.6s ease-out ${index * 0.05}s both`;
             } else {
                 item.classList.add('hidden');
             }
@@ -381,6 +387,8 @@ formInputs.forEach(input => {
 });
 
 // ========== MOBILE RESPONSIVENESS ==========
+// Mobile responsiveness DISABLED - Force desktop layout
+/*
 function handleResize() {
     if (window.innerWidth > 768) {
         navToggle.classList.remove('active');
@@ -389,6 +397,7 @@ function handleResize() {
 }
 
 window.addEventListener('resize', handleResize);
+*/
 
 // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
 const observerOptions = {
@@ -422,11 +431,8 @@ document.addEventListener('contextmenu', (e) => {
 
 // ========== KEYBOARD NAVIGATION ==========
 document.addEventListener('keydown', (e) => {
-    // Escape key closes mobile menu
+    // Escape key closes poster modal (mobile menu disabled)
     if (e.key === 'Escape') {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        
         // Also close poster modal
         const modal = document.getElementById('posterModal');
         if (modal.classList.contains('active')) {
@@ -666,9 +672,9 @@ function viewPoster(button) {
     const desc = card.querySelector('.poster-desc').textContent;
     
     // Set modal content
-    document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalDate').textContent = date;
-    document.getElementById('modalDescription').textContent = desc;
+    document.getElementById('posterModalTitle').textContent = title;
+    document.getElementById('posterModalDate').textContent = date;
+    document.getElementById('posterModalDescription').textContent = desc;
     
     // Open modal
     const modal = document.getElementById('posterModal');
@@ -690,7 +696,7 @@ function closePosterModal() {
 
 // ========== DOWNLOAD POSTER ==========
 function downloadPoster() {
-    const title = document.getElementById('modalTitle').textContent;
+    const title = document.getElementById('posterModalTitle').textContent;
     showToast(`⬇️ Mengunduh ${title.substring(0, 20)}...`, 'success');
     // Dalam production, ganti dengan actual download link
     console.log('Download poster:', title);
@@ -698,7 +704,7 @@ function downloadPoster() {
 
 // ========== SHARE POSTER FROM MODAL ==========
 function sharePosterModal() {
-    const title = document.getElementById('modalTitle').textContent;
+    const title = document.getElementById('posterModalTitle').textContent;
     const shareText = `Lihat poster OSIS: ${title}\n\nKunjungi website OSIS kami untuk melihat lebih banyak poster!`;
     
     if (navigator.share) {
@@ -1528,6 +1534,199 @@ function updateSnakeScore() {
     }
 }
 
+// ========== ADDITIONAL GAMES ==========
+let guessNumberTarget = 0;
+let guessNumberAttempts = 0;
+const guessNumberMaxAttempts = 5;
+let scrambleAnswer = '';
+let scrambleScrambled = '';
+let ticTacToeBoard = [];
+let ticTacToePlayer = 'X';
+let ticTacToeActive = false;
+
+function startGuessNumberGame() {
+    guessNumberTarget = Math.floor(Math.random() * 30) + 1;
+    guessNumberAttempts = 0;
+
+    const content = `
+        <div class="guess-number-game">
+            <p>Temukan angka rahasia antara <strong>1</strong> sampai <strong>30</strong>. Kamu memiliki <strong>${guessNumberMaxAttempts}</strong> kesempatan.</p>
+            <div class="guess-input-row">
+                <input id="guessNumberInput" type="number" min="1" max="30" placeholder="Masukkan angka..." />
+                <button class="game-play-btn" onclick="submitGuessNumber()">Tebak</button>
+            </div>
+            <p class="guess-hint" id="guessNumberHint">Kesempatan tersisa: ${guessNumberMaxAttempts}</p>
+            <button class="game-play-btn" onclick="startGuessNumberGame()">Mulai Ulang</button>
+        </div>
+    `;
+
+    openGameModal('Tebak Angka OSIS', content);
+}
+
+function submitGuessNumber() {
+    const input = document.getElementById('guessNumberInput');
+    const guess = Number(input.value);
+    const hint = document.getElementById('guessNumberHint');
+
+    if (!guess || guess < 1 || guess > 30) {
+        showToast('Masukkan angka valid antara 1 sampai 30.', 'error');
+        return;
+    }
+
+    guessNumberAttempts++;
+    const remaining = guessNumberMaxAttempts - guessNumberAttempts;
+
+    if (guess === guessNumberTarget) {
+        showToast('🎉 Tepat sekali! Kamu berhasil menebak angka.', 'success');
+        hint.textContent = `Selamat! Angka yang dicari adalah ${guessNumberTarget}.`;
+        input.disabled = true;
+        return;
+    }
+
+    if (remaining <= 0) {
+        showToast(`😢 Game berakhir. Angka yang benar adalah ${guessNumberTarget}.`, 'error');
+        hint.textContent = `Game selesai. Angka benar: ${guessNumberTarget}.`;
+        input.disabled = true;
+        return;
+    }
+
+    if (guess < guessNumberTarget) {
+        hint.textContent = `Lebih tinggi! Kesempatan tersisa: ${remaining}`;
+    } else {
+        hint.textContent = `Lebih rendah! Kesempatan tersisa: ${remaining}`;
+    }
+}
+
+function startScrambleGame() {
+    const words = ['osis', 'organisasi', 'kegiatan', 'sosial', 'prestasi', 'inovasi', 'sekolah', 'pengurus'];
+    scrambleAnswer = words[Math.floor(Math.random() * words.length)];
+    scrambleScrambled = shuffleWord(scrambleAnswer);
+
+    const content = `
+        <div class="scramble-game">
+            <p>Susun kembali kata OSIS yang acak berikut ini:</p>
+            <div class="scramble-word">${scrambleScrambled}</div>
+            <div class="guess-input-row">
+                <input id="scrambleInput" type="text" placeholder="Ketik jawaban..." />
+                <button class="game-play-btn" onclick="checkScrambleAnswer()">Cek Jawaban</button>
+            </div>
+            <p class="guess-hint">Petunjuk: kata terdiri dari ${scrambleAnswer.length} huruf.</p>
+            <button class="game-play-btn" onclick="startScrambleGame()">Kata Baru</button>
+        </div>
+    `;
+
+    openGameModal('Word Scramble OSIS', content);
+}
+
+function shuffleWord(word) {
+    const letters = word.split('');
+    for (let i = letters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [letters[i], letters[j]] = [letters[j], letters[i]];
+    }
+    return letters.join('');
+}
+
+function checkScrambleAnswer() {
+    const input = document.getElementById('scrambleInput');
+    const guess = input.value.trim().toLowerCase();
+
+    if (!guess) {
+        showToast('Isi jawaban terlebih dahulu!', 'error');
+        return;
+    }
+
+    if (guess === scrambleAnswer) {
+        showToast('✅ Benar! Kamu berhasil menyusun kata.', 'success');
+        input.disabled = true;
+    } else {
+        showToast('❌ Belum tepat, coba lagi.', 'error');
+    }
+}
+
+function startTicTacToeGame() {
+    ticTacToeBoard = Array(9).fill('');
+    ticTacToePlayer = 'X';
+    ticTacToeActive = true;
+
+    const content = `
+        <div class="tictactoe-game">
+            <p class="tictactoe-status" id="ticTacToeStatus">Giliran: ${ticTacToePlayer}</p>
+            <div class="tictactoe-board">
+                ${Array.from({ length: 9 }).map((_, index) => `<div class="tictactoe-cell" id="tttCell${index}" onclick="playTicTacToeCell(${index})"></div>`).join('')}
+            </div>
+            <button class="game-play-btn" onclick="startTicTacToeGame()">Main Lagi</button>
+        </div>
+    `;
+
+    openGameModal('Tic Tac Toe OSIS', content);
+}
+
+function renderTicTacToeBoard() {
+    for (let index = 0; index < ticTacToeBoard.length; index++) {
+        const cell = document.getElementById(`tttCell${index}`);
+        if (cell) {
+            cell.textContent = ticTacToeBoard[index];
+        }
+    }
+}
+
+function playTicTacToeCell(index) {
+    if (!ticTacToeActive || ticTacToeBoard[index] !== '') {
+        return;
+    }
+
+    ticTacToeBoard[index] = ticTacToePlayer;
+    renderTicTacToeBoard();
+
+    const winner = checkTicTacToeWinner();
+    const status = document.getElementById('ticTacToeStatus');
+
+    if (winner) {
+        ticTacToeActive = false;
+        if (status) {
+            status.textContent = `Pemenang: ${winner}`;
+        }
+        showToast(`🎉 Pemain ${winner} menang!`, 'success');
+        return;
+    }
+
+    if (!ticTacToeBoard.includes('')) {
+        ticTacToeActive = false;
+        if (status) {
+            status.textContent = 'Permainan seri!';
+        }
+        showToast('🤝 Seri! Coba lagi untuk kemenangan.', 'info');
+        return;
+    }
+
+    ticTacToePlayer = ticTacToePlayer === 'X' ? 'O' : 'X';
+    if (status) {
+        status.textContent = `Giliran: ${ticTacToePlayer}`;
+    }
+}
+
+function checkTicTacToeWinner() {
+    const winningPairs = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    for (const [a, b, c] of winningPairs) {
+        if (ticTacToeBoard[a] && ticTacToeBoard[a] === ticTacToeBoard[b] && ticTacToeBoard[a] === ticTacToeBoard[c]) {
+            return ticTacToeBoard[a];
+        }
+    }
+
+    return null;
+}
+
 // ========== AGENDA & POLLING FUNCTIONALITY ==========
 const pollData = {
     motivasi: 24,
@@ -1631,6 +1830,14 @@ const chatbotKnowledge = [
     {
         keywords: ['bantuan', 'help', 'masalah', 'tidak bisa', 'error', 'problem', 'bug'],
         response: 'Ada yang bisa kami bantu? 🆘\n\nMasalah umum:\n❓ Tidak bisa download files → Cek koneksi internet\n❓ Form tidak bisa dikirim → Isi semua field yang wajib\n❓ Galeri tidak muncul → Refresh halaman\n❓ Chat error → Clear browser cache\n\nKalau masih bermasalah:\n1. Chat langsung ke WhatsApp OSIS\n2. Email ke osis@sekolah.ac.id\n3. Datang ke ruang OSIS (jam layanan)\n\nTim kami siap membantu 24/7! 😊\n\nApa masalah Anda?'
+    },
+    {
+        keywords: ['website', 'situs', 'web', 'resmi', 'url'],
+        response: 'Website resmi OSIS: https://osis.sekolah.ac.id. Di sana tersedia berita, galeri, form aspirasi, informasi kontak, dan jadwal acara terbaru.'
+    },
+    {
+        keywords: ['visi', 'misi', 'tujuan', 'fungsi', 'peran'],
+        response: 'Visi OSIS adalah membangun karakter siswa dan meningkatkan prestasi. Misi kami meliputi pengembangan potensi siswa, memperkuat partisipasi, serta membangun hubungan positif antara siswa dan sekolah.'
     }
 ];
 
@@ -1779,6 +1986,11 @@ function generateAIResponse(userMessage) {
         }
     }
 
+    // General OSIS or sekolah questions fallback
+    if (/\b(osis|sekolah|pengurus|program|kegiatan|bidang|anggota|visi|misi)\b/.test(lowerMessage)) {
+        return 'OSIS adalah organisasi siswa intra sekolah yang mendukung kegiatan, aspirasi, dan komunikasi siswa dengan sekolah. Kunjungi website resmi OSIS untuk berita terbaru, kontak, informasi program, dan formulir aspirasi.';
+    }
+
     // If no match, return random fallback response
     return chatbotFallbacks[Math.floor(Math.random() * chatbotFallbacks.length)];
 }
@@ -1796,3 +2008,339 @@ function clearChatHistory() {
 
 // Initialize chatbot when DOM is ready
 document.addEventListener('DOMContentLoaded', initChatbot);
+
+// Animate numbers in dashboard
+function animateNumbers() {
+    const metricValues = document.querySelectorAll('.metric-value');
+    
+    metricValues.forEach(element => {
+        const target = parseInt(element.getAttribute('data-target') || element.textContent);
+        const duration = 2000; // 2 seconds
+        const start = 0;
+        const increment = target / (duration / 16); // 60fps
+        let current = start;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 16);
+    });
+}
+
+// Update dashboard statistics
+function updateDashboardStats() {
+    const galeriCount = document.getElementById('galeriCount');
+    const beritaCount = document.getElementById('beritaCount');
+    const totalViews = document.getElementById('totalViews');
+    
+    if (galeriCount) {
+        galeriCount.setAttribute('data-target', galeriData.length);
+        galeriCount.textContent = '0';
+    }
+    if (beritaCount) {
+        beritaCount.setAttribute('data-target', beritaData.length);
+        beritaCount.textContent = '0';
+    }
+    if (totalViews) {
+        // Calculate total views (you can modify this logic)
+        const totalItems = galeriData.length + beritaData.length;
+        const estimatedViews = totalItems * 25; // Assuming average 25 views per item
+        totalViews.setAttribute('data-target', estimatedViews);
+        totalViews.textContent = '0';
+    }
+    
+    // Start animation after a short delay
+    setTimeout(() => {
+        animateNumbers();
+    }, 500);
+}
+
+async function loadContentData() {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Failed to load data.json');
+        }
+        const data = await response.json();
+        galeriData = data.galeri || [];
+        beritaData = data.berita || [];
+        
+        // Update dashboard statistics after loading data
+        updateDashboardStats();
+    } catch (error) {
+        console.error('Error loading data:', error);
+        // Fallback data
+        galeriData = [
+            { id: 1, judul: 'Foto Kegiatan 1', deskripsi: 'Deskripsi foto', kategori: 'kegiatan', tanggal: '2024-01-15' },
+            { id: 2, judul: 'Foto Profil 1', deskripsi: 'Deskripsi foto', kategori: 'profil', tanggal: '2024-01-14' }
+        ];
+        beritaData = [
+            { id: 1, judul: 'Berita 1', tipe: 'Berita', tanggal: '2024-01-15', deskripsi: 'Deskripsi berita', kontenLengkap: 'Konten lengkap berita' },
+            { id: 2, judul: 'Pengumuman 1', tipe: 'Pengumuman', tanggal: '2024-01-14', deskripsi: 'Deskripsi pengumuman', kontenLengkap: 'Konten lengkap pengumuman' }
+        ];
+        
+        // Update dashboard statistics with fallback data
+        updateDashboardStats();
+    }
+}
+
+// Initialize content modal
+async function initContentModal() {
+    await loadContentData();
+    
+    // Direct listeners for primary buttons
+    const galeriBtn = document.querySelector('[data-action="open-galeri"]');
+    if (galeriBtn) {
+        galeriBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openGaleriModal();
+        });
+    }
+
+    const viewAllNewsBtn = document.querySelector('[data-action="view-all-news"]');
+    if (viewAllNewsBtn) {
+        viewAllNewsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openBeritaListModal();
+        });
+    }
+
+    const beritaLinkButtons = document.querySelectorAll('[data-action="read-more"]');
+    beritaLinkButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const index = parseInt(button.getAttribute('data-index'));
+            if (Number.isNaN(index)) return;
+            openBeritaModal(index);
+        });
+    });
+
+    // Use event delegation for dynamic content and fallback interactions
+    document.addEventListener('click', function(e) {
+        // Handle galeri button clicks
+        if (e.target.closest('[data-action="open-galeri"]')) {
+            e.preventDefault();
+            openGaleriModal();
+            return;
+        }
+        
+        // Handle berita link clicks
+        if (e.target.closest('[data-action="read-more"]')) {
+            e.preventDefault();
+            const button = e.target.closest('[data-action="read-more"]');
+            const index = parseInt(button.getAttribute('data-index'));
+            if (Number.isNaN(index)) return;
+            openBeritaModal(index);
+            return;
+        }
+        
+        // Handle "Lihat Semua Berita" button clicks
+        if (e.target.closest('[data-action="view-all-news"]')) {
+            e.preventDefault();
+            openBeritaListModal();
+            return;
+        }
+    });
+}
+
+// Open galeri modal with all photos
+function openGaleriModal() {
+    const modal = document.getElementById('contentModal');
+    if (!modal) {
+        console.error('Modal not found!');
+        return;
+    }
+    
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDate = document.getElementById('modalDate');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImageContainer = document.getElementById('modalImageContainer');
+    
+    modalBadge.textContent = `Galeri Lengkap (${galeriData.length} Foto)`;
+    modalBadge.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+    modalTitle.textContent = 'Album Foto Lengkap OSIS';
+    modalDate.innerHTML = '<i class="fas fa-info-circle"></i> Klik pada foto untuk melihat detail lengkap';
+    
+    // Create gallery grid with enhanced layout
+    let galleryHTML = '<div class="modal-gallery-grid">';
+    galeriData.forEach((item, index) => {
+        const iconClass = getCategoryIcon(item.kategori);
+        galleryHTML += `
+            <div class="modal-gallery-item" onclick="openSingleGaleriModal(${index})">
+                <div class="gallery-item-image">
+                    <i class="${iconClass}"></i>
+                </div>
+                <div class="gallery-item-info">
+                    <h4>${item.judul}</h4>
+                    <p class="gallery-item-category">${item.kategori}</p>
+                    <p class="gallery-item-date"><i class="fas fa-calendar-alt"></i> ${item.tanggal}</p>
+                    ${item.lokasi ? `<p class="gallery-item-location"><i class="fas fa-map-marker-alt"></i> ${item.lokasi}</p>` : ''}
+                </div>
+            </div>
+        `;
+    });
+    galleryHTML += '</div>';
+    
+    modalDescription.innerHTML = galleryHTML;
+    modalImageContainer.innerHTML = '<div class="image-placeholder" style="font-size: 6rem;"><i class="fas fa-images"></i></div>';
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Open single galeri item modal
+function openSingleGaleriModal(index) {
+    const item = galeriData[index];
+    if (!item) return;
+    
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDate = document.getElementById('modalDate');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImageContainer = document.getElementById('modalImageContainer');
+    
+    modalBadge.textContent = item.kategori.toUpperCase();
+    modalBadge.style.background = getCategoryColor(item.kategori);
+    modalTitle.textContent = item.judul;
+    modalDate.innerHTML = `<i class="fas fa-calendar-alt"></i> ${item.tanggal} ${item.lokasi ? `• <i class="fas fa-map-marker-alt"></i> ${item.lokasi}` : ''}`;
+    
+    modalDescription.innerHTML = `<p>${item.deskripsi}</p>`;
+    modalImageContainer.innerHTML = '<div class="image-placeholder"><i class="fas fa-image"></i></div>';
+}
+
+// Open berita modal
+function openBeritaModal(index) {
+    const item = beritaData[index];
+    const modal = document.getElementById('contentModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDate = document.getElementById('modalDate');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImageContainer = document.getElementById('modalImageContainer');
+
+    if (!item) {
+        modalBadge.textContent = 'Berita Tidak Ditemukan';
+        modalBadge.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)';
+        modalTitle.textContent = 'Maaf, berita belum tersedia.';
+        modalDate.innerHTML = '<i class="fas fa-info-circle"></i> Silakan coba lagi nanti.';
+        modalDescription.innerHTML = '<p>Berita sedang dimuat atau tidak tersedia. Pastikan koneksi internet Anda aktif dan refresh halaman.</p>';
+        modalImageContainer.innerHTML = '<div class="image-placeholder"><i class="fas fa-newspaper"></i></div>';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        return;
+    }
+    
+    modalBadge.textContent = item.tipe;
+    modalBadge.style.background = getBadgeColor(item.tipe);
+    modalTitle.textContent = item.judul;
+    modalDate.innerHTML = `<i class="fas fa-calendar-alt"></i> ${item.tanggal} ${item.penulis ? `• <i class="fas fa-user"></i> ${item.penulis}` : ''} ${item.kategori ? `• <i class="fas fa-tag"></i> ${item.kategori}` : ''}`;
+    
+    // Format konten lengkap dengan paragraf
+    const formattedContent = item.kontenLengkap.split('\n').map(paragraph => 
+        paragraph.trim() ? `<p>${paragraph.replace(/\n/g, '<br>')}</p>` : ''
+    ).join('');
+    
+    modalDescription.innerHTML = `<p><strong>${item.deskripsi}</strong></p><div class="full-content">${formattedContent}</div>`;
+    modalImageContainer.innerHTML = '<div class="image-placeholder"><i class="fas fa-image"></i></div>';
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Open berita list modal
+function openBeritaListModal() {
+    const modal = document.getElementById('contentModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDate = document.getElementById('modalDate');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImageContainer = document.getElementById('modalImageContainer');
+    
+    modalBadge.textContent = `Semua Berita (${beritaData.length} Artikel)`;
+    modalBadge.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+    modalTitle.textContent = 'Berita & Pengumuman Lengkap';
+    modalDate.innerHTML = '<i class="fas fa-info-circle"></i> Klik pada artikel untuk membaca selengkapnya';
+    
+    // Create berita grid
+    let beritaHTML = '<div class="modal-berita-grid">';
+    beritaData.forEach((item, index) => {
+        beritaHTML += `
+            <div class="modal-berita-item" onclick="openBeritaModal(${index})">
+                <div class="berita-item-badge">${item.tipe}</div>
+                <h4>${item.judul}</h4>
+                <p class="berita-item-date"><i class="fas fa-calendar-alt"></i> ${item.tanggal}</p>
+                <p class="berita-item-desc">${item.deskripsi}</p>
+                <span class="berita-item-link">Baca Selengkapnya →</span>
+            </div>
+        `;
+    });
+    beritaHTML += '</div>';
+    
+    modalDescription.innerHTML = beritaHTML;
+    modalImageContainer.innerHTML = '<div class="image-placeholder" style="font-size: 6rem;"><i class="fas fa-newspaper"></i></div>';
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close content modal
+function closeContentModal() {
+    const modal = document.getElementById('contentModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Share content
+function shareContent() {
+    const title = document.getElementById('modalTitle').textContent;
+    const url = window.location.href;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            url: url
+        });
+    } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(`${title} - ${url}`).then(() => {
+            showToast('Link berhasil disalin!', 'success');
+        });
+    }
+}
+
+// Helper functions
+function getCategoryColor(category) {
+    const colors = {
+        'kegiatan': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'profil': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        'acara': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+    };
+    return colors[category] || colors['kegiatan'];
+}
+
+function getCategoryIcon(category) {
+    const icons = {
+        'kegiatan': 'fas fa-calendar-check',
+        'profil': 'fas fa-user-circle',
+        'acara': 'fas fa-party-horn'
+    };
+    return icons[category] || 'fas fa-image';
+}
+
+function getBadgeColor(type) {
+    const colors = {
+        'Pengumuman': 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
+        'Berita': 'linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%)',
+        'Update': 'linear-gradient(135deg, #45b7d1 0%, #96c93d 100%)'
+    };
+    return colors[type] || colors['Berita'];
+}
+
+// Initialize content modal when DOM is ready
+document.addEventListener('DOMContentLoaded', initContentModal);
