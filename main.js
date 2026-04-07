@@ -147,6 +147,13 @@ const textareaAspirasi = document.getElementById('aspirasi');
 const charCountSpan = document.getElementById('charCount');
 const formMessage = document.getElementById('formMessage');
 
+// EmailJS Configuration - GANTI DENGAN KREDENSIAL EMAILJS ANDA
+const EMAILJS_CONFIG = {
+    publicKey: 'YOUR_PUBLIC_KEY',      // Ganti dengan Public Key dari EmailJS
+    serviceId: 'YOUR_SERVICE_ID',      // Ganti dengan Service ID dari EmailJS
+    templateId: 'YOUR_TEMPLATE_ID'     // Ganti dengan Template ID dari EmailJS
+};
+
 // Character counter
 textareaAspirasi.addEventListener('input', function() {
     charCountSpan.textContent = this.value.length;
@@ -164,31 +171,117 @@ textareaAspirasi.addEventListener('input', function() {
     }
 });
 
-// Form submission
+// Form submission - Send email via EmailJS
 aspirasiForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     if (validateForm()) {
-        // Show success message
-        formMessage.textContent = '✓ Aspirasi Anda berhasil dikirim! Terima kasih atas masukan Anda.';
-        formMessage.classList.add('success');
-        formMessage.classList.remove('error');
+        // Get form data
+        const formData = {
+            nama: document.getElementById('nama').value,
+            email: document.getElementById('email').value,
+            kelas: document.getElementById('kelas').value,
+            kategori: document.getElementById('kategori').value,
+            aspirasi: document.getElementById('aspirasi').value,
+            tanggal: new Date().toLocaleString('id-ID')
+        };
         
-        // Create confetti
-        createConfetti();
+        // Show loading message
+        formMessage.textContent = '⏳ Mengirim aspirasi...';
+        formMessage.classList.add('loading');
+        formMessage.classList.remove('success', 'error');
         
-        // Scroll to message
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-        // Reset form after 2 seconds
-        setTimeout(() => {
-            this.reset();
-            charCountSpan.textContent = '0';
-            formMessage.classList.remove('success');
-            formMessage.textContent = '';
-        }, 2000);
+        // Send email using EmailJS
+        sendEmailViaEmailJS(formData)
+            .then(function(response) {
+                console.log('Email berhasil dikirim!', response);
+                
+                // Show success message
+                formMessage.textContent = '✓ Aspirasi Anda berhasil dikirim ke osisosi@gmail.com! Terima kasih atas masukan Anda.';
+                formMessage.classList.add('success');
+                formMessage.classList.remove('error', 'loading');
+                
+                // Create confetti
+                createConfetti();
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    aspirasiForm.reset();
+                    charCountSpan.textContent = '0';
+                    formMessage.classList.remove('success');
+                    formMessage.textContent = '';
+                }, 3000);
+            })
+            .catch(function(error) {
+                console.error('Gagal mengirim email:', error);
+                
+                // Show error message
+                formMessage.textContent = '✗ Gagal mengirim aspirasi. Silakan coba lagi atau hubungi osisosi@gmail.com secara langsung.';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success', 'loading');
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
     }
 });
+
+// Function to send email via EmailJS
+function sendEmailViaEmailJS(formData) {
+    return new Promise(function(resolve, reject) {
+        // Check if EmailJS is initialized
+        if (typeof emailjs === 'undefined') {
+            reject(new Error('EmailJS belum diinisialisasi'));
+            return;
+        }
+        
+        // Prepare email parameters
+        const templateParams = {
+            to_email: 'osisosi@gmail.com',
+            from_name: formData.nama,
+            from_email: formData.email,
+            kelas: getKelasName(formData.kelas),
+            kategori: getKategoriName(formData.kategori),
+            aspirasi: formData.aspirasi,
+            tanggal: formData.tanggal
+        };
+        
+        // Send email using EmailJS
+        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams)
+            .then(function(response) {
+                resolve(response);
+            })
+            .catch(function(error) {
+                reject(error);
+            });
+    });
+}
+
+// Helper function to get class name from value
+function getKelasName(kelasValue) {
+    const kelasMap = {
+        'X-1': '10 - 1', 'X-2': '10 - 2', 'X-3': '10 - 3',
+        'XI-1': '11 - 1', 'XI-2': '11 - 2', 'XI-3': '11 - 3',
+        'XII-1': '12 - 1', 'XII-2': '12 - 2'
+    };
+    return kelasMap[kelasValue] || kelasValue;
+}
+
+// Helper function to get category name from value
+function getKategoriName(kategoriValue) {
+    const kategoriMap = {
+        'akademik': '🎓 Akademik',
+        'kegiatan': '📅 Kegiatan',
+        'fasilitas': '🏢 Fasilitas',
+        'lingkungan': '🌿 Lingkungan',
+        'sosial': '👥 Sosial',
+        'lainnya': '📝 Lainnya'
+    };
+    return kategoriMap[kategoriValue] || kategoriValue;
+}
 
 function validateForm() {
     const nama = document.getElementById('nama');
@@ -542,6 +635,9 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// Initialize search modal
+document.addEventListener('DOMContentLoaded', initSearchModal);
 
 // ========== ADVANCED MOUSE TRACKING FOR CARDS ==========
 document.querySelectorAll('.member-card').forEach(card => {
@@ -915,6 +1011,127 @@ function initThemeToggle() {
 }
 
 // ========== SEARCH MODAL ==========
+// Global search functions for inline onclick handlers
+function closeSearch() {
+    const searchModal = document.querySelector('.search-modal');
+    const searchInput = document.querySelector('.search-input');
+    if (searchModal) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    if (searchInput) {
+        searchInput.value = '';
+        showSearchPlaceholderGlobal();
+    }
+}
+
+function performSearch() {
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        performSearchGlobal(searchInput.value);
+    }
+}
+
+function searchKeyword(keyword) {
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.value = keyword;
+        performSearchGlobal(keyword);
+    }
+}
+
+function scrollToSection(sectionId) {
+    closeSearch();
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Global function to show search placeholder
+function showSearchPlaceholderGlobal() {
+    const searchResults = document.querySelector('.search-results');
+    if (searchResults) {
+        searchResults.innerHTML = `
+            <div class="search-placeholder">
+                <i class="fas fa-search"></i>
+                <h4>Cari informasi OSIS...</h4>
+                <p>Ketik kata kunci seperti "program", "kontak", "galeri", dll.</p>
+            </div>
+        `;
+    }
+}
+
+// Global search data - Enhanced with more specific content
+const SEARCH_DATA_GLOBAL = [
+    // Static pages
+    { title: 'Tentang OSIS', content: 'Organisasi Siswa Intra Sekolah, sejarah OSIS, visi misi OSIS, nilai-nilai inti OSIS', icon: 'fas fa-info-circle', section: 'about' },
+    { title: 'Struktur Organisasi', content: 'Pengurus inti OSIS, pembina OSIS, ketua OSIS, wakil ketua OSIS, sekretaris, bendahara, bidang-bidang OSIS', icon: 'fas fa-users', section: 'struktur' },
+    { title: 'Program Kerja', content: 'Kegiatan dan acara OSIS sepanjang tahun, program semester 1, program semester 2, event OSIS', icon: 'fas fa-calendar-alt', section: 'program' },
+    { title: 'Berita & Pengumuman', content: 'Informasi terbaru dari OSIS, berita OSIS, pengumuman penting, update OSIS', icon: 'fas fa-newspaper', section: 'berita' },
+    { title: 'Galeri Kegiatan', content: 'Dokumentasi foto kegiatan OSIS, foto kegiatan, dokumentasi OSIS, momen OSIS', icon: 'fas fa-images', section: 'galeri' },
+    { title: 'Poster & Material', content: 'Koleksi poster dan materi OSIS, poster OSIS, material OSIS, arsip poster', icon: 'fas fa-file-alt', section: 'poster' },
+    { title: 'Kirim Aspirasi', content: 'Formulir untuk menyampaikan masukan, aspirasi siswa, saran OSIS, feedback OSIS', icon: 'fas fa-comment', section: 'aspirasi' },
+    { title: 'Kontak Kami', content: 'Informasi kontak dan lokasi OSIS, alamat OSIS, email OSIS, telepon OSIS', icon: 'fas fa-phone', section: 'kontak' },
+    { title: 'Dashboard Statistik', content: 'Data dan pencapaian OSIS, statistik OSIS, pencapaian OSIS, anggota OSIS', icon: 'fas fa-chart-bar', section: 'dashboard' },
+    { title: 'Timeline Sejarah', content: 'Perjalanan OSIS dari tahun ke tahun, sejarah OSIS, perkembangan OSIS', icon: 'fas fa-history', section: 'timeline' },
+    { title: 'Testimonial Siswa', content: 'Pengalaman siswa dengan OSIS, kesan siswa OSIS, pengalaman bergabung OSIS', icon: 'fas fa-star', section: 'testimonial' },
+    { title: 'Chat Bot AI', content: 'Asisten virtual untuk informasi OSIS, AI chatbot OSIS, bantuan OSIS', icon: 'fas fa-robot', section: 'chatbot' },
+    
+    // Specific content keywords
+    { title: 'Pemilihan Ketua OSIS', content: 'Pemilihan ketua OSIS, pemilu OSIS, calon ketua OSIS, proses pemilihan OSIS', icon: 'fas fa-vote-yea', section: 'berita' },
+    { title: 'Pelantikan Pengurus', content: 'Pelantikan pengurus OSIS, serah terima jabatan OSIS, acara pelantikan', icon: 'fas fa-handshake', section: 'berita' },
+    { title: 'Lomba OSIS', content: 'Lomba OSIS tingkat kota, lomba OSIS tingkat kabupaten, kompetisi OSIS', icon: 'fas fa-trophy', section: 'berita' },
+    { title: 'Workshop OSIS', content: 'Workshop OSIS, pelatihan OSIS, seminar OSIS, motivasi OSIS', icon: 'fas fa-chalkboard-teacher', section: 'program' },
+    { title: 'Outbound OSIS', content: 'Outbound pengurus OSIS, gathering OSIS, team building OSIS', icon: 'fas fa-hiking', section: 'program' },
+    { title: 'Bazar Amal', content: 'Bazar amal OSIS, penggalangan dana OSIS, kegiatan sosial OSIS', icon: 'fas fa-hands-helping', section: 'program' },
+    { title: 'Kegiatan Akademik', content: 'Program akademik OSIS, bimbingan belajar, prestasi akademik', icon: 'fas fa-graduation-cap', section: 'program' },
+    { title: 'Kegiatan Seni', content: 'Kegiatan seni OSIS, lomba seni, festival seni, kreativitas siswa', icon: 'fas fa-palette', section: 'program' },
+    { title: 'Kegiatan Olahraga', content: 'Kegiatan olahraga OSIS, pertandingan olahraga, event olahraga', icon: 'fas fa-volleyball-ball', section: 'program' },
+    { title: 'Kegiatan Sosial', content: 'Kegiatan sosial OSIS, pengabdian masyarakat, kegiatan lingkungan', icon: 'fas fa-hands', section: 'program' }
+];
+
+// Global perform search function
+function performSearchGlobal(query) {
+    const searchResults = document.querySelector('.search-results');
+    if (!searchResults) return;
+    
+    if (!query || !query.trim()) {
+        showSearchPlaceholderGlobal();
+        return;
+    }
+
+    const results = SEARCH_DATA_GLOBAL.filter(item =>
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.content.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (results.length === 0) {
+        searchResults.innerHTML = `
+            <div class="search-placeholder">
+                <i class="fas fa-search-minus"></i>
+                <h4>Tidak ada hasil</h4>
+                <p>Coba kata kunci lain seperti "program", "kontak", atau "galeri"</p>
+            </div>
+        `;
+        return;
+    }
+
+    const resultsHTML = results.map(result => `
+        <div class="search-result-item" onclick="scrollToSection('${result.section}')">
+            <div class="search-result-icon">
+                <i class="${result.icon}"></i>
+            </div>
+            <div class="search-result-info">
+                <h4>${result.title}</h4>
+                <p>${result.content}</p>
+            </div>
+        </div>
+    `).join('');
+
+    searchResults.innerHTML = resultsHTML;
+}
+
 // Search modal functionality
 function initSearchModal() {
     const searchToggle = document.querySelector('.search-toggle');
@@ -926,126 +1143,58 @@ function initSearchModal() {
     const searchResults = document.querySelector('.search-results');
     const suggestionTags = document.querySelectorAll('.suggestion-tag');
 
-    // Search data
-    const searchData = [
-        { title: 'Tentang OSIS', content: 'Organisasi Siswa Intra Sekolah', icon: 'fas fa-info-circle', section: 'about' },
-        { title: 'Struktur Organisasi', content: 'Pengurus inti dan bidang-bidang OSIS', icon: 'fas fa-users', section: 'struktur' },
-        { title: 'Program Kerja', content: 'Kegiatan dan acara OSIS sepanjang tahun', icon: 'fas fa-calendar-alt', section: 'program' },
-        { title: 'Berita & Pengumuman', content: 'Informasi terbaru dari OSIS', icon: 'fas fa-newspaper', section: 'berita' },
-        { title: 'Galeri Kegiatan', content: 'Dokumentasi foto kegiatan OSIS', icon: 'fas fa-images', section: 'galeri' },
-        { title: 'Poster & Material', content: 'Koleksi poster dan materi OSIS', icon: 'fas fa-file-alt', section: 'poster' },
-        { title: 'Kirim Aspirasi', content: 'Formulir untuk menyampaikan masukan', icon: 'fas fa-comment', section: 'aspirasi' },
-        { title: 'Kontak Kami', content: 'Informasi kontak dan lokasi OSIS', icon: 'fas fa-phone', section: 'kontak' },
-        { title: 'Dashboard Statistik', content: 'Data dan pencapaian OSIS', icon: 'fas fa-chart-bar', section: 'dashboard' },
-        { title: 'Timeline Sejarah', content: 'Perjalanan OSIS dari tahun ke tahun', icon: 'fas fa-history', section: 'timeline' },
-        { title: 'Testimonial Siswa', content: 'Pengalaman siswa dengan OSIS', icon: 'fas fa-star', section: 'testimonial' },
-        { title: 'Chat Bot AI', content: 'Asisten virtual untuk informasi OSIS', icon: 'fas fa-robot', section: 'chatbot' }
-    ];
-
-    function openSearchModal() {
-        searchModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        searchInput.focus();
+    // Event listeners for search modal
+    if (searchToggle) {
+        searchToggle.addEventListener('click', () => {
+            searchModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            searchInput.focus();
+        });
+    }
+    
+    if (searchOverlay) {
+        searchOverlay.addEventListener('click', closeSearch);
+    }
+    
+    if (searchClose) {
+        searchClose.addEventListener('click', closeSearch);
     }
 
-    function closeSearchModal() {
-        searchModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        searchInput.value = '';
-        showSearchPlaceholder();
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            performSearchGlobal(e.target.value);
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearchGlobal(searchInput.value);
+            }
+        });
     }
 
-    function showSearchPlaceholder() {
-        searchResults.innerHTML = `
-            <div class="search-placeholder">
-                <i class="fas fa-search"></i>
-                <h4>Cari informasi OSIS...</h4>
-                <p>Ketik kata kunci seperti "program", "kontak", "galeri", dll.</p>
-            </div>
-        `;
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+            performSearchGlobal(searchInput.value);
+        });
     }
-
-    function performSearch(query) {
-        if (!query.trim()) {
-            showSearchPlaceholder();
-            return;
-        }
-
-        const results = searchData.filter(item =>
-            item.title.toLowerCase().includes(query.toLowerCase()) ||
-            item.content.toLowerCase().includes(query.toLowerCase())
-        );
-
-        if (results.length === 0) {
-            searchResults.innerHTML = `
-                <div class="search-placeholder">
-                    <i class="fas fa-search-minus"></i>
-                    <h4>Tidak ada hasil</h4>
-                    <p>Coba kata kunci lain seperti "program", "kontak", atau "galeri"</p>
-                </div>
-            `;
-            return;
-        }
-
-        const resultsHTML = results.map(result => `
-            <div class="search-result-item" onclick="scrollToSection('${result.section}')">
-                <div class="search-result-icon">
-                    <i class="${result.icon}"></i>
-                </div>
-                <div class="search-result-info">
-                    <h4>${result.title}</h4>
-                    <p>${result.content}</p>
-                </div>
-            </div>
-        `).join('');
-
-        searchResults.innerHTML = resultsHTML;
-    }
-
-    function scrollToSection(sectionId) {
-        closeSearchModal();
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // Event listeners
-    searchToggle.addEventListener('click', openSearchModal);
-    searchOverlay.addEventListener('click', closeSearchModal);
-    searchClose.addEventListener('click', closeSearchModal);
-
-    searchInput.addEventListener('input', (e) => {
-        performSearch(e.target.value);
-    });
-
-    searchBtn.addEventListener('click', () => {
-        performSearch(searchInput.value);
-    });
-
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            performSearch(searchInput.value);
-        }
-    });
 
     // Suggestion tags
     suggestionTags.forEach(tag => {
         tag.addEventListener('click', () => {
             searchInput.value = tag.textContent;
-            performSearch(tag.textContent);
+            performSearchGlobal(tag.textContent);
         });
     });
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && searchModal.classList.contains('active')) {
-            closeSearchModal();
+        if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
+            closeSearch();
         }
     });
 
     // Initialize with placeholder
-    showSearchPlaceholder();
+    showSearchPlaceholderGlobal();
 }
 
 // ========== GAMES SECTION ==========
@@ -2344,3 +2493,91 @@ function getBadgeColor(type) {
 
 // Initialize content modal when DOM is ready
 document.addEventListener('DOMContentLoaded', initContentModal);
+
+// ========== SEJARAH CAROUSEL ==========
+function initSejarahCarousel() {
+    const carousel = document.getElementById('sejarahCarousel');
+    const prevBtn = document.getElementById('sejarahPrev');
+    const nextBtn = document.getElementById('sejarahNext');
+    const dotsContainer = document.getElementById('sejarahDots');
+    
+    if (!carousel || !prevBtn || !nextBtn || !dotsContainer) return;
+    
+    const cards = carousel.querySelectorAll('.sejarah-card');
+    const cardWidth = 320 + 24; // card width + gap
+    let currentIndex = 0;
+    
+    // Create dots
+    cards.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    function goToSlide(index) {
+        const maxIndex = Math.max(0, cards.length - 3);
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        carousel.scrollTo({
+            left: currentIndex * cardWidth,
+            behavior: 'smooth'
+        });
+        updateDots();
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const maxIndex = Math.max(0, cards.length - 3);
+        if (currentIndex < maxIndex) {
+            goToSlide(currentIndex + 1);
+        }
+    });
+    
+    // Update dots on scroll
+    carousel.addEventListener('scroll', () => {
+        currentIndex = Math.round(carousel.scrollLeft / cardWidth);
+        updateDots();
+    });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        const maxIndex = Math.max(0, cards.length - 3);
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0 && currentIndex < maxIndex) {
+                goToSlide(currentIndex + 1);
+            } else if (diff < 0 && currentIndex > 0) {
+                goToSlide(currentIndex - 1);
+            }
+        }
+    }
+}
+
+// Initialize sejarah carousel when DOM is ready
+document.addEventListener('DOMContentLoaded', initSejarahCarousel);

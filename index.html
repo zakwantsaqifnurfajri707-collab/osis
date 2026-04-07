@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK for sending emails -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            // Ganti 'YOUR_PUBLIC_KEY' dengan public key dari EmailJS
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
     <style>
         /* Force desktop layout on all devices */
         @media (max-width: 9999px) {
@@ -606,104 +615,170 @@
         </div>
     </section>
 
-    <!-- SEJARAH OSIS -->
-    <section id="timeline" class="timeline">
+    <!-- SEJARAH OSIS - Horizontal Card Layout -->
+    <section id="timeline" class="sejarah-section">
         <div class="container">
             <h2 class="section-title">📚 Sejarah OSIS</h2>
-            <p class="section-subtitle">Sejarah OSIS ditempatkan di bawah bagian Tentang OSIS agar alur informasi lebih jelas dan terstruktur.</p>
-            <p class="section-description">Bersama bagian Tentang OSIS, ini membantu siswa memahami perjalanan organisasi sebelum melihat struktur dan program kerja.</p>
+            <p class="section-subtitle">Perjalanan OSIS dari masa ke masa</p>
 
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-seedling"></i>
+            <div class="sejarah-carousel-wrapper">
+                <button class="carousel-nav prev" id="sejarahPrev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="sejarah-carousel" id="sejarahCarousel">
+                    <!-- Card 1: Pendirian -->
+                    <div class="sejarah-card">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2010</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Pendirian OSIS</h3>
+                            <p>OSIS resmi didirikan sebagai wadah aspirasi siswa. Dimulai dengan 25 anggota pertama yang memiliki visi membangun sekolah lebih baik.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-users"></i>
+                                <span>25 Anggota</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-flag"></i>
+                                <span>3 Program</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2010</div>
-                        <h3>Pendirian OSIS</h3>
-                        <p>OSIS resmi didirikan sebagai wadah aspirasi siswa. Dimulai dengan 25 anggota pertama yang memiliki visi membangun sekolah lebih baik.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-users"></i> 25 Anggota</span>
-                            <span><i class="fas fa-flag"></i> 3 Program</span>
+
+                    <!-- Card 2: Modernisasi -->
+                    <div class="sejarah-card">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2015</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Era Modernisasi</h3>
+                            <p>OSIS mulai mengadopsi teknologi digital. Website pertama OSIS diluncurkan dan media sosial mulai digunakan untuk komunikasi.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-globe"></i>
+                                <span>Website Baru</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Sosial Media</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Prestasi -->
+                    <div class="sejarah-card highlight">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2018</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Prestasi Tingkat Kota</h3>
+                            <p>OSIS berhasil meraih juara 1 dalam kompetisi OSIS tingkat kota. Program-program inovatif mendapat penghargaan dari dinas pendidikan.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-medal"></i>
+                                <span>Juara 1 Kota</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-award"></i>
+                                <span>5 Penghargaan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Pandemi -->
+                    <div class="sejarah-card">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2020</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Adaptasi Era Pandemi</h3>
+                            <p>OSIS beradaptasi dengan situasi pandemi. Program-program dilaksanakan secara daring dan fokus pada kesehatan mental siswa.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-laptop"></i>
+                                <span>15 Program Online</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-heart"></i>
+                                <span>Dukungan Mental</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Digital -->
+                    <div class="sejarah-card">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2023</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Era Digital Terintegrasi</h3>
+                            <p>OSIS meluncurkan sistem digital terintegrasi. Website modern, aplikasi mobile, dan sistem aspirasi online menjadi fokus utama.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-code"></i>
+                                <span>Website Modern</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Chatbot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Current -->
+                    <div class="sejarah-card current">
+                        <div class="sejarah-card-header">
+                            <div class="sejarah-year">2024</div>
+                            <div class="sejarah-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                        <div class="sejarah-card-body">
+                            <h3>Masa Depan Cerah</h3>
+                            <p>OSIS terus berkembang dengan inovasi terbaru. Fokus pada pengembangan karakter, prestasi akademik, dan kesejahteraan siswa.</p>
+                        </div>
+                        <div class="sejarah-card-stats">
+                            <div class="stat-mini">
+                                <i class="fas fa-target"></i>
+                                <span>100+ Program</span>
+                            </div>
+                            <div class="stat-mini">
+                                <i class="fas fa-users"></i>
+                                <span>44 Anggota</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2015</div>
-                        <h3>Era Modernisasi</h3>
-                        <p>OSIS mulai mengadopsi teknologi digital. Website pertama OSIS diluncurkan dan media sosial mulai digunakan untuk komunikasi.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-globe"></i> Website Baru</span>
-                            <span><i class="fas fa-mobile-alt"></i> Sosial Media</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2018</div>
-                        <h3>Prestasi Tingkat Kota</h3>
-                        <p>OSIS berhasil meraih juara 1 dalam kompetisi OSIS tingkat kota. Program-program inovatif mendapat penghargaan dari dinas pendidikan.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-medal"></i> Juara 1 Kota</span>
-                            <span><i class="fas fa-award"></i> 5 Penghargaan</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2020</div>
-                        <h3>Adaptasi Era Pandemi</h3>
-                        <p>OSIS beradaptasi dengan situasi pandemi. Program-program dilaksanakan secara daring dan fokus pada kesehatan mental siswa.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-laptop"></i> 15 Program Online</span>
-                            <span><i class="fas fa-heart"></i> Dukungan Mental</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023</div>
-                        <h3>Era Digital Terintegrasi</h3>
-                        <p>OSIS meluncurkan sistem digital terintegrasi. Website modern, aplikasi mobile, dan sistem aspirasi online menjadi fokus utama.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-code"></i> Website Modern</span>
-                            <span><i class="fas fa-robot"></i> AI Chatbot</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item current">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2024</div>
-                        <h3>Masa Depan Cerah</h3>
-                        <p>OSIS terus berkembang dengan inovasi terbaru. Fokus pada pengembangan karakter, prestasi akademik, dan kesejahteraan siswa.</p>
-                        <div class="timeline-stats">
-                            <span><i class="fas fa-target"></i> 100+ Program</span>
-                            <span><i class="fas fa-users"></i> 44 Anggota</span>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-nav next" id="sejarahNext" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+
+            <!-- Carousel Dots -->
+            <div class="carousel-dots" id="sejarahDots"></div>
         </div>
     </section>
 
